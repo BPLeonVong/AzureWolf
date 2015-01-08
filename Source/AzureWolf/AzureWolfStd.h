@@ -65,18 +65,3 @@ using fastdelegate::MakeDelegate;
 
 
 #include "AzureWolf/AzureWolf.h"
-
-/*
-To Do List:
-Actors Base Class
-Component Base Class
-Processes Base Class
-Factory Creation Class
-Logger
-Templates
-types
-Environment directories
-Memory type class
-Pointer?
-Application Base Class to set the screen
-*/
