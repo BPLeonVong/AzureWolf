@@ -1,0 +1,28 @@
+﻿Build started 2015-01-04 8:00:56 PM.
+     1>Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\GameBuild.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"GameBuildStd.h" /Fp"Release\GameBuild.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Application\GameBuildStd.cpp
+         GameBuildStd.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Projects\AzureWolf\Release\GameBuild.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\GameBuild.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Projects\AzureWolf\Release\GameBuild.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Projects\AzureWolf\Release\GameBuild.lib" /MACHINE:X86 Release\GameBuildStd.obj
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "protected: static int __cdecl AW::WindowApplication::Run(int,char * *)" (?Run@WindowApplication@AW@@KAHHPAPAD@Z)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall AW::WindowApplication::OnResize(int,int)" (?OnResize@WindowApplication@AW@@UAEXHH@Z)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall AW::WindowApplication::OnMove(int,int)" (?OnMove@WindowApplication@AW@@UAEXHH@Z)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall AW::WindowApplication::Main(int,char * *)" (?Main@WindowApplication@AW@@UAEHHPAPAD@Z)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: static void __cdecl AW::InitTerm::AddTerminator(void (__cdecl*)(void))" (?AddTerminator@InitTerm@AW@@SAXP6AXXZ@Z)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: static void __cdecl AW::InitTerm::AddInitializer(void (__cdecl*)(void))" (?AddInitializer@InitTerm@AW@@SAXP6AXXZ@Z)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: static class AW::Application * AW::Application::MYApplication" (?MYApplication@Application@AW@@2PAV12@A)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: static int (__cdecl* AW::Application::Run)(int,char * *)" (?Run@Application@AW@@2P6AHHPAPAD@ZA)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: virtual __thiscall AW_GameApplication::~AW_GameApplication(void)" (??1AW_GameApplication@@UAE@XZ)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall AW_GameApplication::OnTerminate(void)" (?OnTerminate@AW_GameApplication@@UAEXXZ)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall AW_GameApplication::OnInitialize(void)" (?OnInitialize@AW_GameApplication@@UAE_NXZ)
+     1>GameBuildStd.obj : error LNK2001: unresolved external symbol "public: __thiscall AW_GameApplication::AW_GameApplication(char const *,int,int,int,int,class AW::Float4 const &)" (??0AW_GameApplication@@QAE@PBDHHHHABVFloat4@AW@@@Z)
+     1>MSVCRT.lib(crtexew.obj) : error LNK2001: unresolved external symbol _WinMain@16
+     1>E:\Projects\AzureWolf\Release\GameBuild.exe : fatal error LNK1120: 13 unresolved externals
+     1>Done Building Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.43

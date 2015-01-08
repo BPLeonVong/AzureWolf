@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{27f4ad06-f776-4b95-9c88-0955ec52ac69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicFoundations">
+      <UniqueIdentifier>{5f62f421-f87c-46a2-aa69-f8e2ee08c6bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AzureWolf">
+      <UniqueIdentifier>{45497741-148e-465e-b391-f21b11d360be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems">
+      <UniqueIdentifier>{9a4cb0ea-16b7-4026-ac36-d64204f4886d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{ace937b9-8d02-4c3e-8f22-6035699ac49a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceCache">
+      <UniqueIdentifier>{5f506988-84aa-4001-869a-962048305024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpecificSubsystems">
+      <UniqueIdentifier>{eebea46d-8e43-4ae1-bab9-bcdb113aed93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\Utilities">
+      <UniqueIdentifier>{7d6ee9e1-0c4d-4ba7-a1dc-27141a882852}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\Debugging">
+      <UniqueIdentifier>{eb989e08-5e01-4d00-b108-d6ed7fbb9299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Graphics3D">
+      <UniqueIdentifier>{e8a7ce5a-4a2e-437b-bb03-3a4e87fded86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicFoundations\MainLoop">
+      <UniqueIdentifier>{cbca9bfd-1e31-41fd-9c92-862c4ef15b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\UserInterface">
+      <UniqueIdentifier>{f27ca54b-5baf-447c-823e-31248f7f2a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\Memory">
+      <UniqueIdentifier>{5ca7c80d-151a-402b-b6ab-938d655dd08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpecificSubsystems\Spirit">
+      <UniqueIdentifier>{fd3495fb-95d4-4556-92f0-adaf1d648da3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\Utilities\DataTypes">
+      <UniqueIdentifier>{c1d7b38d-e9a8-4d5c-956b-f416bd6be199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\Time">
+      <UniqueIdentifier>{c8626977-fba1-422d-a44c-83e3fb992931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\RenderDevice">
+      <UniqueIdentifier>{6b731cf1-d69b-4e66-8e45-d0fd690fc420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Resources">
+      <UniqueIdentifier>{98d9a517-2213-4d2d-b999-7df68bcf4217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGLRenderer">
+      <UniqueIdentifier>{36aaa18c-714c-4114-8a4c-d8f1ef8d7430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\AWGLRenderer">
+      <UniqueIdentifier>{5a5839f3-e7a1-4330-9dce-d82fd17ef6fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\StartUp Modules">
+      <UniqueIdentifier>{f15c9c28-40b6-4e25-90e8-b9a9d3d0103a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreSystems\FileIO">
+      <UniqueIdentifier>{5705a04d-16bf-43da-a2ad-7ca483f2d8bf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AzureWolf\AzureWolf.h">
+      <Filter>AzureWolf</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\templates.h">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\types.h">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Debugging\Logger.h">
+      <Filter>CoreSystems\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Foundations\Main Loop\Initialization.h">
+      <Filter>BasicFoundations\MainLoop</Filter>
+    </ClInclude>
+    <ClInclude Include="AzureWolf\BaseGameLogic.h">
+      <Filter>AzureWolf</Filter>
+    </ClInclude>
+    <ClInclude Include="AzureWolfStd.h" />
+    <ClInclude Include="Core Systems\StartUp\AW_Application.h">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="AzureWolf\interfaces.h">
+      <Filter>AzureWolf</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\AW_CoreSystems.h">
+      <Filter>CoreSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Memory\AW_Memory.h">
+      <Filter>CoreSystems\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Specific Subsystems\Spirit\Spirit.h">
+      <Filter>SpecificSubsystems\Spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="Specific Subsystems\Spirit\SpiritFactory.h">
+      <Filter>SpecificSubsystems\Spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="Specific Subsystems\Spirit\SpiritProperty.h">
+      <Filter>SpecificSubsystems\Spirit</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\StartUp\AW_WindowApplication.h">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\DataTypes\AWFloat4.h">
+      <Filter>CoreSystems\Utilities\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\StartUp\AW_Command.h">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Time\AWTime.h">
+      <Filter>CoreSystems\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\graphics3d\geometry.h">
+      <Filter>Renderer\Graphics3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Graphics3D\SceneNode.h">
+      <Filter>Renderer\Graphics3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\User Interface\UserInterface.h">
+      <Filter>Renderer\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\AWInit.h">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\RenderDevice\RenderInput.h">
+      <Filter>Renderer\RenderDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Resources\AWTexture.h">
+      <Filter>Renderer\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\AW_Graphics.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\AWGLRenderer\AW_Renderer.h">
+      <Filter>Renderer\AWGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGLRenderer\AWOpenGLRendererData.h">
+      <Filter>Renderer\OpenGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\AWGLRenderer\AW_GLRenderData.h">
+      <Filter>Renderer\AWGLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource Cache\ResourceCache.h">
+      <Filter>ResourceCache</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\FileIO\AW_FileIO.h">
+      <Filter>CoreSystems\FileIO</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AzureWolfStd.cpp" />
+    <ClCompile Include="AzureWolf\AzureWolf.cpp">
+      <Filter>AzureWolf</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Debugging\Logger.cpp">
+      <Filter>CoreSystems\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic Foundations\Main Loop\Initialization.cpp">
+      <Filter>BasicFoundations\MainLoop</Filter>
+    </ClCompile>
+    <ClCompile Include="AzureWolf\BaseGameLogic.cpp">
+      <Filter>AzureWolf</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\StartUp\AW_Application.cpp">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Specific Subsystems\Spirit\Spirit.cpp">
+      <Filter>SpecificSubsystems\Spirit</Filter>
+    </ClCompile>
+    <ClCompile Include="Specific Subsystems\Spirit\SpiritFactory.cpp">
+      <Filter>SpecificSubsystems\Spirit</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\StartUp\AW_WindowApplication.cpp">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\StartUp\AW_Command.cpp">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\StartUp\AW_WindowApplicationMain.cpp">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Time\AWTime.cpp">
+      <Filter>CoreSystems\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Graphics3D\geometry.cpp">
+      <Filter>Renderer\Graphics3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Graphics3D\SceneNode.cpp">
+      <Filter>Renderer\Graphics3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\AWInit.cpp">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\AWGLRenderer\AW_Renderer.cpp">
+      <Filter>Renderer\AWGLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource Cache\ResourceCache.cpp">
+      <Filter>ResourceCache</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\FileIO\AW_FileIO.cpp">
+      <Filter>CoreSystems\FileIO</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Audio\About.txt">
+      <Filter>Audio</Filter>
+    </None>
+    <None Include="AzureWolf\About.txt">
+      <Filter>AzureWolf</Filter>
+    </None>
+    <None Include="Basic Foundations\About.txt">
+      <Filter>BasicFoundations</Filter>
+    </None>
+    <None Include="Core Systems\About.txt">
+      <Filter>CoreSystems</Filter>
+    </None>
+    <None Include="Resource Cache\About.txt">
+      <Filter>ResourceCache</Filter>
+    </None>
+    <None Include="Specific Subsystems\About.txt">
+      <Filter>SpecificSubsystems</Filter>
+    </None>
+    <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl">
+      <Filter>CoreSystems\Utilities\DataTypes</Filter>
+    </None>
+    <None Include="Core Systems\Utilities\AWTuple.inl">
+      <Filter>CoreSystems\Utilities</Filter>
+    </None>
+    <None Include="Core Systems\StartUp\AW_WindowApplication.inl">
+      <Filter>CoreSystems\StartUp Modules</Filter>
+    </None>
+    <None Include="Core Systems\Memory\AW_Memory.inl">
+      <Filter>CoreSystems\Memory</Filter>
+    </None>
+    <None Include="Renderer\About.txt" />
+    <None Include="Core Systems\FileIO\AW_FileIO.inl">
+      <Filter>CoreSystems\FileIO</Filter>
+    </None>
+  </ItemGroup>
+</Project>

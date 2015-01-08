@@ -1,0 +1,1 @@
+Defines entry point of game and underlying windows related foundations for system.

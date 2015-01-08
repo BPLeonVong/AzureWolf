@@ -1,0 +1,18 @@
+This file is used to produce:
+
+Start and Shut Modules X
+Assertion X
+Unit Testing
+Memory Allocation
+Math
+Strings and Hashed String
+Debug Profiling X
+Localization X
+Movie Player
+Parser
+Enging Config
+RNG
+Curves and Surfaces lib.
+Object Handling
+I/O
+ETC

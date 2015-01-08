@@ -1,0 +1,34 @@
+﻿Build started 2015-01-04 8:03:46 PM.
+     1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (rebuild target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\AzureWolf.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"Release\AzureWolf.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
+         AzureWolfStd.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"Release\AzureWolf.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
+         AzureWolf.cpp
+         BaseGameLogic.cpp
+         Initialization.cpp
+         Logger.cpp
+         AW_Application.cpp
+         AW_Command.cpp
+         AW_WindowApplication.cpp
+         AW_WindowApplicationMain.cpp
+     1>Core Systems\StartUp\AW_WindowApplicationMain.cpp(132): error C2440: '=' : cannot convert from 'char [17]' to 'LPCWSTR'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>Core Systems\StartUp\AW_WindowApplicationMain.cpp(158): error C2664: 'CreateWindowExW' : cannot convert parameter 2 from 'char [17]' to 'LPCWSTR'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+         AWTime.cpp
+         AWInit.cpp
+         AW_Renderer.cpp
+         geometry.cpp
+         SceneNode.cpp
+         ResourceCache.cpp
+     1>e:\projects\azurewolf\source\azurewolf\resource cache\ResourceCache.h(4): fatal error C1083: Cannot open include file: 'zlib.h': No such file or directory
+         Spirit.cpp
+         SpiritFactory.cpp
+     1>Done Building Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" (rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.12

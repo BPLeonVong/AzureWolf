@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AzureWolf", "Source\AzureWolf\AzureWolf.vcxproj", "{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameBuild", "Source\GameBuild\GameBuild.vcxproj", "{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DebugDLL|Win32 = DebugDLL|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}.Debug|Win32.Build.0 = Debug|Win32
+		{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}.DebugDLL|Win32.ActiveCfg = DebugDLL|Win32
+		{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}.DebugDLL|Win32.Build.0 = DebugDLL|Win32
+		{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}.Release|Win32.ActiveCfg = Release|Win32
+		{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}.Release|Win32.Build.0 = Release|Win32
+		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.Debug|Win32.Build.0 = Debug|Win32
+		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.DebugDLL|Win32.ActiveCfg = DebugDLL|Win32
+		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.DebugDLL|Win32.Build.0 = DebugDLL|Win32
+		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.Release|Win32.ActiveCfg = Release|Win32
+		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

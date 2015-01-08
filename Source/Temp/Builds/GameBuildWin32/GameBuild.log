@@ -1,0 +1,30 @@
+﻿Build started 2015-01-07 6:01:36 PM.
+     1>Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "..\Temp\Builds\GameBuildWin32\GameBuild.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "..\Temp\Builds\GameBuildWin32\GameBuild.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IE:\Projects\AzureWolf\\Source\Lib\AzureWolfWin32 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"GameBuildStd.h" /Fp"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.pch" /Fo"..\Temp\Builds\GameBuildWin32\\" /Fd"..\Lib\GameBuildWin32\GameBuildWin32Application.pdb" /Gd /TP /analyze- /errorReport:prompt Application\GameBuildStd.cpp
+         GameBuildStd.cpp
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.embed.manifest.res" ..\Temp\Builds\GameBuildWin32\GameBuildWin32Application_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Lib\GameBuildWin32\GameBuildWin32Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\Projects\AzureWolf\Source\GameBuild\\..\Lib\AzureWolfWin32 AzureWolfWin32D.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib /MANIFEST /ManifestFile:"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Projects\AzureWolf\Source\Lib\GameBuildWin32\GameBuildWin32Application.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Lib\GameBuildWin32\GameBuildWin32Application.lib" /MACHINE:X86 ..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.embed.manifest.res
+         ..\Temp\Builds\GameBuildWin32\GameBuildStd.obj
+       Manifest:
+         Deleting file "..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.embed.manifest".
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.embed.manifest" /manifest ..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.embed.manifest.res" ..\Temp\Builds\GameBuildWin32\GameBuildWin32Application_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Lib\GameBuildWin32\GameBuildWin32Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\Projects\AzureWolf\Source\GameBuild\\..\Lib\AzureWolfWin32 AzureWolfWin32D.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib /MANIFEST /ManifestFile:"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Projects\AzureWolf\Source\Lib\GameBuildWin32\GameBuildWin32Application.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Lib\GameBuildWin32\GameBuildWin32Application.lib" /MACHINE:X86 ..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.exe.embed.manifest.res
+         ..\Temp\Builds\GameBuildWin32\GameBuildStd.obj
+         GameBuild.vcxproj -> E:\Projects\AzureWolf\Source\GameBuild\..\Lib\GameBuildWin32\GameBuildWin32Application.exe
+       FinalizeBuildStatus:
+         Deleting file "..\Temp\Builds\GameBuildWin32\GameBuild.unsuccessfulbuild".
+         Touching "..\Temp\Builds\GameBuildWin32\GameBuild.lastbuildstate".
+     1>Done Building Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.91

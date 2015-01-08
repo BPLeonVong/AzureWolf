@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugDLL|Win32">
+      <Configuration>DebugDLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AzureWolfStd.h" />
+    <ClInclude Include="AzureWolf\AzureWolf.h" />
+    <ClInclude Include="AzureWolf\BaseGameLogic.h" />
+    <ClInclude Include="AzureWolf\interfaces.h" />
+    <ClInclude Include="Basic Foundations\Main Loop\Initialization.h" />
+    <ClInclude Include="Core Systems\AW_CoreSystems.h" />
+    <ClInclude Include="Core Systems\Debugging\Logger.h" />
+    <ClInclude Include="Core Systems\FileIO\AW_FileIO.h" />
+    <ClInclude Include="Core Systems\Memory\AW_Memory.h" />
+    <ClInclude Include="Core Systems\StartUp\AW_Application.h" />
+    <ClInclude Include="Core Systems\StartUp\AW_Command.h" />
+    <ClInclude Include="Core Systems\StartUp\AW_WindowApplication.h" />
+    <ClInclude Include="Core Systems\Time\AWTime.h" />
+    <ClInclude Include="Core Systems\Utilities\AWInit.h" />
+    <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h" />
+    <ClInclude Include="Core Systems\Utilities\DataTypes\AWFloat4.h" />
+    <ClInclude Include="Core Systems\Utilities\templates.h" />
+    <ClInclude Include="Core Systems\Utilities\types.h" />
+    <ClInclude Include="Renderer\AWGLRenderer\AW_GLRenderData.h" />
+    <ClInclude Include="Renderer\AWGLRenderer\AW_Renderer.h" />
+    <ClInclude Include="Renderer\AW_Graphics.h" />
+    <ClInclude Include="renderer\graphics3d\geometry.h" />
+    <ClInclude Include="Renderer\Graphics3D\SceneNode.h" />
+    <ClInclude Include="Renderer\OpenGLRenderer\AWOpenGLRendererData.h" />
+    <ClInclude Include="Renderer\RenderDevice\RenderInput.h" />
+    <ClInclude Include="Renderer\Resources\AWTexture.h" />
+    <ClInclude Include="Renderer\User Interface\UserInterface.h" />
+    <ClInclude Include="Resource Cache\ResourceCache.h" />
+    <ClInclude Include="Specific Subsystems\Spirit\Spirit.h" />
+    <ClInclude Include="Specific Subsystems\Spirit\SpiritFactory.h" />
+    <ClInclude Include="Specific Subsystems\Spirit\SpiritProperty.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AzureWolfStd.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AzureWolfStd.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">AzureWolfStd.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AzureWolf\AzureWolf.cpp" />
+    <ClCompile Include="AzureWolf\BaseGameLogic.cpp" />
+    <ClCompile Include="Basic Foundations\Main Loop\Initialization.cpp" />
+    <ClCompile Include="Core Systems\Debugging\Logger.cpp" />
+    <ClCompile Include="Core Systems\FileIO\AW_FileIO.cpp" />
+    <ClCompile Include="Core Systems\StartUp\AW_Application.cpp" />
+    <ClCompile Include="Core Systems\StartUp\AW_Command.cpp" />
+    <ClCompile Include="Core Systems\StartUp\AW_WindowApplication.cpp" />
+    <ClCompile Include="Core Systems\StartUp\AW_WindowApplicationMain.cpp" />
+    <ClCompile Include="Core Systems\Time\AWTime.cpp" />
+    <ClCompile Include="Core Systems\Utilities\AWInit.cpp" />
+    <ClCompile Include="Renderer\AWGLRenderer\AW_Renderer.cpp" />
+    <ClCompile Include="Renderer\Graphics3D\geometry.cpp" />
+    <ClCompile Include="Renderer\Graphics3D\SceneNode.cpp" />
+    <ClCompile Include="Resource Cache\ResourceCache.cpp" />
+    <ClCompile Include="Specific Subsystems\Spirit\Spirit.cpp" />
+    <ClCompile Include="Specific Subsystems\Spirit\SpiritFactory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Audio\About.txt" />
+    <None Include="AzureWolf\About.txt" />
+    <None Include="Basic Foundations\About.txt" />
+    <None Include="Core Systems\About.txt" />
+    <None Include="Core Systems\FileIO\AW_FileIO.inl" />
+    <None Include="Core Systems\Memory\AW_Memory.inl" />
+    <None Include="Core Systems\StartUp\AW_WindowApplication.inl" />
+    <None Include="Core Systems\Utilities\AWTuple.inl" />
+    <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl" />
+    <None Include="Renderer\About.txt" />
+    <None Include="Resource Cache\About.txt" />
+    <None Include="Specific Subsystems\About.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AzureWolf</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
+    <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
+    <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)$(PlatformName)D</TargetName>
+    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
+    <TargetName>$(ProjectName)$(PlatformName)D</TargetName>
+    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>
+    <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
+    <TargetName>$(ProjectName)$(PlatformName)R</TargetName>
+    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;AW_LITTLE_ENDIAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>AzureWolfStd.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;AW_CORE_DLL_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>AzureWolfStd.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>..\Lib\$(ProjectName)$(PlatformName)\</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>AzureWolfStd.h</PrecompiledHeaderFile>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
