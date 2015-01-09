@@ -2,6 +2,7 @@
 #include "AW_WindowApplication.h"
 
 #include <iostream>
+
 using namespace std;
 using namespace AW;
 
@@ -91,7 +92,6 @@ int WindowApplication::Main(int, char**)
 
     RegisterClass(&wc);
 
-
 	 DWORD dwStyle;
     if (mAllowResize)
     {
@@ -155,7 +155,7 @@ int WindowApplication::Main(int, char**)
             else
             {
                 theApp->OnIdle();
-				mRenderer->RenderScene();
+				mRenderer->RenderScene();				//TEmp
 			SwapBuffers(input.mRendererDC);				// Swap Buffers (Double Buffering)
             }
 

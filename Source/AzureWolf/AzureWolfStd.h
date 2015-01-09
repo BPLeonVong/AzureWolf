@@ -54,6 +54,7 @@ public:
 //3rd Party
 #include "../3rd_Party/tinyxml_2_6_2/tinyxml.h"
 #include "../3rd_Party/FastDelegate/FastDelegate.h"
+#include <zlib.h>
 
 using fastdelegate::MakeDelegate;
 

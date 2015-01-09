@@ -1,7 +1,6 @@
 #pragma once
 //Resource cache in progress
 #include <cstdio>
-#include <zlib.h>
 
 
 
