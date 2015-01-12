@@ -1,0 +1,36 @@
+\hypertarget{importer_notes_blender}{}\section{Blender}\label{importer_notes_blender}
+\hypertarget{importer_notes_bl_overview}{}\subsection{Overview}\label{importer_notes_bl_overview}
+Assimp provides a self-\/contained reimplementation of Blender\textquotesingle{}s so called S\+D\+N\+A system (\href{http://www.blender.org/development/architecture/notes-on-sdna/}{\tt http\+://www.\+blender.\+org/development/architecture/notes-\/on-\/sdna/}). S\+D\+N\+A allows Blender to be fully backward A\+N\+D forward compatible and to exchange files created on any of the various platforms blender runs on with any other. Quick processing is another design goal -\/ B\+L\+E\+N\+D is a fully-\/fledged binary monster and Assimp tries to read the most of it. Naturally, if Blender is the only modelling tool in your asset work flow, consider writing a custom exporter from Blender if Assimp\textquotesingle{}s format coverage does not meet your requirements.\hypertarget{importer_notes_bl_status}{}\subsection{Current status}\label{importer_notes_bl_status}
+\hypertarget{importer_notes_bl_notes}{}\subsection{Notes}\label{importer_notes_bl_notes}
+\hypertarget{importer_notes_ogre}{}\section{Ogre}\label{importer_notes_ogre}
+\hypertarget{importer_notes_overview}{}\subsection{Overview}\label{importer_notes_overview}
+Ogre importer is currently optimized for the Blender Ogre exporter, because thats the only one that i use. You can find the Blender Ogre exporter at\+: \href{http://www.ogre3d.org/forums/viewtopic.php?f=8&t=45922}{\tt http\+://www.\+ogre3d.\+org/forums/viewtopic.\+php?f=8\&t=45922}\hypertarget{importer_notes_what}{}\subsection{What will be loaded?}\label{importer_notes_what}
+Mesh\+: Faces, Positions, Normals and one Uv pair. The Materialname will be used to load the material.
+
+Material\+: The right material in the file will be searched, the importer should work with materials who have 1 technique and 1 pass in this technique. From there, the texturename (for 1 color-\/ and 1 normalmap) and the materialcolors (but not in custom materials) will be loaded. Also, the materialname will be set.
+
+Skeleton\+: Skeleton with Bone hierarchy (Position and Rotation, but no Scaling in the skeleton is supported), names and transformations, animations with rotation, translation and scaling keys.\hypertarget{importer_notes_export_Blender}{}\subsection{How to export Files from Blender}\label{importer_notes_export_Blender}
+You can find informations about how to use the Ogreexporter by your own, so here are just some options that you need, so the assimp importer will load everything correctly\+:
+\begin{DoxyItemize}
+\item Use either \char`\"{}\+Rendering Material\char`\"{} or \char`\"{}\+Custom Material\char`\"{} see \hyperlink{importer_notes_material}{Materials}
+\item do not use \char`\"{}\+Flip Up Axies to Y\char`\"{}
+\item use \char`\"{}\+Skeleton name follow mesh\char`\"{}
+\end{DoxyItemize}\hypertarget{importer_notes_xml}{}\subsection{X\+M\+L Format}\label{importer_notes_xml}
+There is a binary and a X\+M\+L mesh Format from Ogre. This loader can only Handle xml files, but don\textquotesingle{}t panic, there is a command line converter, which you can use to create X\+M\+L files from Binary Files. Just look on the Ogre page for it.
+
+Currently you can only load meshes. So you will need to import the $\ast$.mesh.\+xml file, the loader will try to find the appendant material and skeleton file.
+
+The skeleton file must have the same name as the mesh file, e.\+g. fish.\+mesh.\+xml and fish.\+skeleton.\+xml.\hypertarget{importer_notes_material}{}\subsection{Materials}\label{importer_notes_material}
+The material file can have the same name as the mesh file, or you can use Importer\+::\+Importer\+::\+Set\+Property\+String(A\+I\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+O\+G\+R\+E\+\_\+\+M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+F\+I\+L\+E, \char`\"{}materiafile.\+material\char`\"{}) to specify the name of the material file. This is especially usefull if multiply materials a stored in a single file. The importer will first try to load the material with the same name as the mesh and only if this can\textquotesingle{}t be open try to load the alternate material file. The default material filename is \char`\"{}\+Scene.\+material\char`\"{}.
+
+We suggest that you use custom materials, because they support multiple textures (like colormap and normalmap). First of all you should read the custom material sektion in the Ogre Blender exporter Help File, and than use the assimp.\+tlp template, which you can find in scripts/\+Ogre\+Impoter/\+Assimp.\+tlp in the assimp source. If you don\textquotesingle{}t set all values, don\textquotesingle{}t worry, they will be ignored during import.
+
+If you want more properties in custom materials, you can easily expand the ogre material loader, it will be just a few lines for each property.\hypertarget{importer_notes_todo}{}\subsection{Todo}\label{importer_notes_todo}
+
+\begin{DoxyItemize}
+\item Load colors in custom materials
+\item extend custom and normal material loading
+\item fix bone hierarchy bug
+\item tes everything elaboratly
+\item check for non existent animation keys (what happens if a one time not all bones have a key?) 
+\end{DoxyItemize}

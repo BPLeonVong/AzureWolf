@@ -1,0 +1,230 @@
+\hypertarget{usage_access_cpp}{}\section{Access by C++ class interface}\label{usage_access_cpp}
+The A\+S\+S\+I\+M\+P library can be accessed by both a class or flat function interface. The C++ class interface is the preferred way of interaction\+: you create an instance of class Assimp\+::\+Importer, maybe adjust some settings of it and then call Assimp\+::\+Importer\+::\+Read\+File(). The class will read the files and process its data, handing back the imported data as a pointer to an ai\+Scene to you. You can now extract the data you need from the file. The importer manages all the resources for itsself. If the importer is destroyed, all the data that was created/read by it will be destroyed, too. So the easiest way to use the Importer is to create an instance locally, use its results and then simply let it go out of scope.
+
+C++ example\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <assimp.hpp>}      \textcolor{comment}{// C++ importer interface}
+\textcolor{preprocessor}{#include <aiScene.h>}       \textcolor{comment}{// Output data structure}
+\textcolor{preprocessor}{#include <aiPostProcess.h>} \textcolor{comment}{// Post processing flags}
+
+\textcolor{keywordtype}{bool} DoTheImportThing( \textcolor{keyword}{const} std::string& pFile)
+\{
+  \textcolor{comment}{// Create an instance of the Importer class}
+  Assimp::Importer importer;
+
+  \textcolor{comment}{// And have it read the given file with some example postprocessing}
+  \textcolor{comment}{// Usually - if speed is not the most important aspect for you - you'll }
+  \textcolor{comment}{// propably to request more postprocessing than we do in this example.}
+  \textcolor{keyword}{const} aiScene* scene = importer.ReadFile( pFile, 
+    aiProcess\_CalcTangentSpace       | 
+    aiProcess\_Triangulate            |
+    aiProcess\_JoinIdenticalVertices  |
+    aiProcess\_SortByPType);
+  
+  \textcolor{comment}{// If the import failed, report it}
+  \textcolor{keywordflow}{if}( !scene)
+  \{
+    DoTheErrorLogging( importer.GetErrorString());
+    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+  \}
+
+  \textcolor{comment}{// Now we can access the file's contents. }
+  DoTheSceneProcessing( scene);
+
+  \textcolor{comment}{// We're done. Everything will be cleaned up by the importer destructor}
+  \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+\}
+\end{DoxyCode}
+
+
+What exactly is read from the files and how you interpret it is described at the \hyperlink{data}{Data Structures} page.  The post processing steps that the A\+S\+S\+I\+M\+P library can apply to the imported data are listed at \#ai\+Post\+Process\+Steps. See the pp Post proccessing page for more details.
+
+Note that the ai\+Scene data structure returned is declared \textquotesingle{}const\textquotesingle{}. Yes, you can get rid of these 5 letters with a simple cast. Yes, you may do that. No, it\textquotesingle{}s not recommended (and it\textquotesingle{}s suicide in D\+L\+L builds if you try to use new or delete on any of the arrays in the scene).\hypertarget{usage_access_c}{}\section{Access by plain-\/c function interface}\label{usage_access_c}
+The plain function interface is just as simple, but requires you to manually call the clean-\/up after you\textquotesingle{}re done with the imported data. To start the import process, call ai\+Import\+File() with the filename in question and the desired postprocessing flags like above. If the call is successful, an ai\+Scene pointer with the imported data is handed back to you. When you\textquotesingle{}re done with the extraction of the data you\textquotesingle{}re interested in, call ai\+Release\+Import() on the imported scene to clean up all resources associated with the import.
+
+C example\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <assimp.h>}        \textcolor{comment}{// Plain-C interface}
+\textcolor{preprocessor}{#include <aiScene.h>}       \textcolor{comment}{// Output data structure}
+\textcolor{preprocessor}{#include <aiPostProcess.h>} \textcolor{comment}{// Post processing flags}
+
+\textcolor{keywordtype}{bool} DoTheImportThing( \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pFile)
+\{
+  \textcolor{comment}{// Start the import on the given file with some example postprocessing}
+  \textcolor{comment}{// Usually - if speed is not the most important aspect for you - you'll t}
+  \textcolor{comment}{// probably to request more postprocessing than we do in this example.}
+  \textcolor{keyword}{const} aiScene* scene = aiImportFile( pFile, 
+    aiProcess\_CalcTangentSpace       | 
+    aiProcess\_Triangulate            |
+    aiProcess\_JoinIdenticalVertices  |
+    aiProcess\_SortByPType);
+
+  \textcolor{comment}{// If the import failed, report it}
+  \textcolor{keywordflow}{if}( !scene)
+  \{
+    DoTheErrorLogging( aiGetErrorString());
+    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+  \}
+
+  \textcolor{comment}{// Now we can access the file's contents}
+  DoTheSceneProcessing( scene);
+
+  \textcolor{comment}{// We're done. Release all resources associated with this import}
+  aiReleaseImport( scene);
+  \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+\}
+\end{DoxyCode}
+\hypertarget{usage_custom_io}{}\section{Using custom I\+O logic with the C++ class interface}\label{usage_custom_io}
+The A\+S\+S\+I\+M\+P library needs to access files internally. This of course applies to the file you want to read, but also to additional files in the same folder for certain file formats. By default, standard C/\+C++ I\+O logic is used to access these files. If your application works in a special environment where custom logic is needed to access the specified files, you have to supply custom implementations of I\+O\+Stream and I\+O\+System. A shortened example might look like this\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <IOStream.h>}
+\textcolor{preprocessor}{#include <IOSystem.h>}
+
+\textcolor{comment}{// My own implementation of IOStream}
+\textcolor{keyword}{class }MyIOStream : \textcolor{keyword}{public} ASSIMP::IOStream
+\{
+  \textcolor{keyword}{friend} \textcolor{keyword}{class }MyIOSystem;
+
+\textcolor{keyword}{protected}:
+  \textcolor{comment}{// Constructor protected for private usage by MyIOSystem}
+  MyIOStream(\textcolor{keywordtype}{void});
+
+\textcolor{keyword}{public}:
+  ~MyIOStream(\textcolor{keywordtype}{void});
+  \textcolor{keywordtype}{size\_t} Read( \textcolor{keywordtype}{void}* pvBuffer, \textcolor{keywordtype}{size\_t} pSize, \textcolor{keywordtype}{size\_t} pCount) \{ ... \}
+  \textcolor{keywordtype}{size\_t} Write( \textcolor{keyword}{const} \textcolor{keywordtype}{void}* pvBuffer, \textcolor{keywordtype}{size\_t} pSize, \textcolor{keywordtype}{size\_t} pCount) \{ ... \}
+  aiReturn Seek( \textcolor{keywordtype}{size\_t} pOffset, aiOrigin pOrigin) \{ ... \}
+  \textcolor{keywordtype}{size\_t} Tell()\textcolor{keyword}{ const }\{ ... \}
+  \textcolor{keywordtype}{size\_t} FileSize()\textcolor{keyword}{ const }\{ ... \}
+  \textcolor{keywordtype}{void} Flush () \{ ... \}
+\};
+
+\textcolor{comment}{// Fisher Price - My First Filesystem}
+\textcolor{keyword}{class }MyIOSystem : \textcolor{keyword}{public} ASSIMP::IOSystem
+\{
+  MyIOSystem() \{ ... \}
+  ~MyIOSystem() \{ ... \}
+
+  \textcolor{comment}{// Check whether a specific file exists}
+  \textcolor{keywordtype}{bool} Exists( \textcolor{keyword}{const} std::string& pFile)\textcolor{keyword}{ const }\{
+    .. 
+  \}
+
+  \textcolor{comment}{// Get the path delimiter character we'd like to see}
+  \textcolor{keywordtype}{char} GetOsSeparator()\textcolor{keyword}{ const }\{ 
+    \textcolor{keywordflow}{return} \textcolor{charliteral}{'/'}; 
+  \}
+
+  \textcolor{comment}{// ... and finally a method to open a custom stream}
+  IOStream* Open( \textcolor{keyword}{const} std::string& pFile, \textcolor{keyword}{const} std::string& pMode) \{
+    \textcolor{keywordflow}{return} \textcolor{keyword}{new} MyIOStream( ... ); 
+  \}
+
+  \textcolor{keywordtype}{void} Close( IOStream* pFile) \{ \textcolor{keyword}{delete} pFile; \}
+\};
+\end{DoxyCode}
+
+
+Now that your I\+O system is implemented, supply an instance of it to the Importer object by calling Assimp\+::\+Importer\+::\+Set\+I\+O\+Handler().
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} DoTheImportThing( \textcolor{keyword}{const} std::string& pFile)
+\{
+  Assimp::Importer importer;
+  \textcolor{comment}{// put my custom IO handling in place}
+  importer.SetIOHandler( \textcolor{keyword}{new} MyIOSystem());
+
+  \textcolor{comment}{// the import process will now use this implementation to access any file}
+  importer.ReadFile( pFile, SomeFlag | SomeOtherFlag);
+\}
+\end{DoxyCode}
+\hypertarget{usage_custom_io_c}{}\section{Using custom I\+O logic with the plain-\/c function interface}\label{usage_custom_io_c}
+The C interface also provides a way to override the file system. Control is not as fine-\/grained as for C++ although surely enough for almost any purpose. The process is simple\+:
+
+
+\begin{DoxyItemize}
+\item Include ai\+File\+I\+O.\+h 
+\item Fill an ai\+File\+I\+O structure with custom file system callbacks (they\textquotesingle{}re self-\/explanatory as they work similar to the C\+R\+T\textquotesingle{}s f\+X\+X\+X functions) 
+\item .. and pass it as last parameter to \#ai\+Import\+File\+Ex 
+\end{DoxyItemize}\hypertarget{usage_logging}{}\section{Logging}\label{usage_logging}
+The A\+S\+S\+I\+M\+P library provides an easy mechanism to log messages. For instance if you want to check the state of your import and you just want to see, after which preprocessing step the import-\/process was aborted you can take a look into the log. Per default the A\+S\+S\+I\+M\+P-\/library provides a default log implementation, where you can log your user specific message by calling it as a singleton with the requested logging-\/type. To see how this works take a look to this\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }Assimp;
+
+\textcolor{comment}{// Create a logger instance }
+DefaultLogger::create(\textcolor{stringliteral}{""},Logger::VERBOSE);
+
+\textcolor{comment}{// Now I am ready for logging my stuff}
+DefaultLogger::get()->info(\textcolor{stringliteral}{"this is my info-call"});
+
+\textcolor{comment}{// Kill it after the work is done}
+DefaultLogger::kill();
+\end{DoxyCode}
+
+
+At first you have to create the default-\/logger-\/instance (create). Now you are ready to rock and can log a little bit around. After that you should kill it to release the singleton instance.
+
+If you want to integrate the A\+S\+S\+I\+M\+P-\/log into your own G\+U\+I it my be helpful to have a mechanism writing the logs into your own log windows. The logger interface provides this by implementing an interface called Log\+Stream. You can attach and detach this log stream to the default-\/logger instance or any implementation derived from Logger. Just derivate your own logger from the abstract base class Log\+Stream and overwrite the write-\/method\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Example stream}
+\textcolor{keyword}{class }myStream :
+    \textcolor{keyword}{public} LogStream
+\{
+\textcolor{keyword}{public}:
+    \textcolor{comment}{// Constructor}
+    myStream()
+    \{
+        \textcolor{comment}{// empty}
+    \}
+    
+    \textcolor{comment}{// Destructor}
+    ~myStream()
+    \{
+        \textcolor{comment}{// empty}
+    \}
+
+    \textcolor{comment}{// Write womethink using your own functionality}
+    \textcolor{keywordtype}{void} write(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* message)
+    \{
+        ::printf(\textcolor{stringliteral}{"%s\(\backslash\)n"}, message);
+    \}
+\};
+
+\textcolor{comment}{// Select the kinds of messages you want to receive on this log stream}
+\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} severity = Logger::DEBUGGING|Logger::INFO|Logger::ERR|Logger::WARN;
+
+\textcolor{comment}{// Attaching it to the default logger}
+Assimp::DefaultLogger::get()->attachStream( \textcolor{keyword}{new} myStream(), severity );
+\end{DoxyCode}
+
+
+The severity level controls the kind of message which will be written into the attached stream. If you just want to log errors and warnings set the warn and error severity flag for those severities. It is also possible to remove a self defined logstream from an error severity by detaching it with the severity flag set\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} severity = 0;
+severity |= Logger::DEBUGGING;
+
+\textcolor{comment}{// Detach debug messages from you self defined stream}
+Assimp::DefaultLogger::get()->attachStream( \textcolor{keyword}{new} myStream(), severity );
+\end{DoxyCode}
+
+
+If you want to implement your own logger just derive from the abstract base class \#\+Logger and overwrite the methods debug, info, warn and error.
+
+If you want to see the debug-\/messages in a debug-\/configured build, the Logger-\/interface provides a logging-\/severity. You can set it calling the following method\+:
+
+
+\begin{DoxyCode}
+Assimp::DefaultLogger::get()->setLogSeverity( LogSeverity log\_severity );
+\end{DoxyCode}
+
+
+The normal logging severity supports just the basic stuff like, info, warnings and errors. In the verbose level very fine-\/grained debug messages will be logged, too. Note that this kind kind of logging might decrease import performance. 

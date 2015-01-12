@@ -1,0 +1,57 @@
+The parameters described on this page are commonly used by almost every assimp command. They specify how the library will postprocess the imported data. This is done by several configurable pipeline stages, called \textquotesingle{}post processing steps\textquotesingle{}. Below you can find a list of all supported steps along with short descriptions of what they\textquotesingle{}re doing. ~\newline
+{\bfseries Programmers}\+: more information can be found in the {\ttfamily ai\+Post\+Process.\+h} header.
+
+\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf Parameter }&{\bf Long parameter }&{\bf Description  }\\\cline{1-3}
+{\ttfamily -\/ptv} &{\ttfamily --pretransform-\/vertices} &Move all vertices into worldspace and collapse the scene graph. Animation data is lost. This is intended for applications which don\textquotesingle{}t support scenegraph-\/oriented rendering.  \\\cline{1-3}
+{\ttfamily -\/gsn} &{\ttfamily --gen-\/smooth-\/normals} &Computes \textquotesingle{}smooth\textquotesingle{} per-\/vertex normal vectors if necessary. Mutually exclusive with -\/gn  \\\cline{1-3}
+{\ttfamily -\/gn} &{\ttfamily --gen-\/normals} &Computes \textquotesingle{}hard\textquotesingle{} per-\/face normal vectors if necessary. Mutually exclusive with -\/gsn  \\\cline{1-3}
+{\ttfamily -\/cts} &{\ttfamily --calc-\/tangent-\/space} &If one U\+V channel and normal vectors are given, compute tangents and bitangents  \\\cline{1-3}
+{\ttfamily -\/jiv} &{\ttfamily --join-\/identical-\/vertices} &Optimize the index buffer. If this flag is not specified all vertices are referenced once.  \\\cline{1-3}
+{\ttfamily -\/rrm} &{\ttfamily --remove-\/redundant-\/materials} &Remove redundant materials from the imported data.  \\\cline{1-3}
+{\ttfamily -\/fd} &{\ttfamily --find-\/degenerates} &Find and process degenerates primitives.  \\\cline{1-3}
+{\ttfamily -\/slm} &{\ttfamily --split-\/large-\/meshes} &Split large meshes over a specific treshold in smaller sub meshes. The default vertex \& face limit is 1000000  \\\cline{1-3}
+{\ttfamily -\/lbw} &{\ttfamily --limit-\/bone-\/weights} &Limit the number of bones influencing a single vertex. The default limit is 4.  \\\cline{1-3}
+{\ttfamily -\/vds} &{\ttfamily --validate-\/data-\/structure} &Performs a full validation of the imported data structure. Recommended to avoid crashes if an import plugin produces rubbish  \\\cline{1-3}
+{\ttfamily -\/icl} &{\ttfamily --improve-\/cache-\/locality} &Improve the cache locality of the vertex buffer by reordering the index buffer to achieve a lower A\+C\+M\+R (average post-\/transform vertex cache miss ratio)  \\\cline{1-3}
+{\ttfamily -\/sbpt} &{\ttfamily --sort-\/by-\/ptype} &Splits meshes which consist of more than one kind of primitives (e.\+g. lines and triangles mixed up) in \textquotesingle{}clean\textquotesingle{} submeshes.   \\\cline{1-3}
+{\ttfamily -\/lh} &{\ttfamily --convert-\/to-\/lh} &Converts the imported data to left-\/handed coordinate space  \\\cline{1-3}
+{\ttfamily -\/fuv} &{\ttfamily --flip-\/uv} &Flip U\+V coordinates from upper-\/left origin to lower-\/left origin  \\\cline{1-3}
+{\ttfamily -\/fwo} &{\ttfamily --flip-\/winding-\/order} &Flip face winding order from C\+C\+W to C\+W  \\\cline{1-3}
+{\ttfamily -\/ett} &{\ttfamily --evaluate-\/texture-\/transform} &Evaluate per-\/texture U\+V transformations (e.\+g scaling, offset) and build pretransformed U\+V channels  \\\cline{1-3}
+{\ttfamily -\/guv} &{\ttfamily --gen-\/uvcoords} &Replace abstract mapping descriptions, such as \textquotesingle{}spherical\textquotesingle{} or \textquotesingle{}cylindrical\textquotesingle{} with proper U\+V channels  \\\cline{1-3}
+{\ttfamily -\/fixn} &{\ttfamily --fix-\/normals} &Run a heuristic algorithm to detect meshes with wrong face winding order/normals.   \\\cline{1-3}
+{\ttfamily -\/tri} &{\ttfamily --triangulate} &Triangulate poylgons with 4 and more points. Lines, points and triangles are not affected.   \\\cline{1-3}
+{\ttfamily -\/fi} &{\ttfamily --find-\/instances} &Search the data structure for instanced meshes and replace them by references. This can reduce vertex/face counts but the postprocessing-\/step takes some time. 
+
+\\\cline{1-3}
+{\ttfamily -\/og} &{\ttfamily --optimize-\/graph} &Simplify and optimize the scenegraph. Use it with care, all hierarchy information could be lost. Animations remain untouched.  
+
+\\\cline{1-3}
+{\ttfamily -\/om} &{\ttfamily --optimize-\/mesh} &Optimize mesh usage. Meshes are merged, if possible. Very effective in combination with {\ttfamily --optimize-\/graph}  \\\cline{1-3}
+\end{TabularC}
+
+
+For convenience some default postprocessing configurations are provided. The corresponding command line parameter is {\ttfamily -\/c$<$name$>$} (or {\ttfamily --config=$<$name$>$}).
+
+\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf Name }&{\bf Description }&{\bf List of steps executed  }\\\cline{1-3}
+fast &Fast post processing config, performs some essential optimizations and computes tangents &{\ttfamily -\/cts, -\/gn, -\/jiv, -\/tri, -\/guv, -\/sbpt}  \\\cline{1-3}
+default &Balanced post processing config; performs most optimizations &{\ttfamily -\/cts, -\/gsn, -\/jiv, -\/icl, -\/lbw, -\/rrm, -\/slm, -\/tri, -\/guv, -\/sbpt, -\/fd, -\/fiv}  \\\cline{1-3}
+full &Full post processing. May take a while but results in best output quality for most purposes &{\ttfamily -\/cts, -\/gsn, -\/jiv, -\/icl, -\/lbw, -\/rrm, -\/slm, -\/tri, -\/guv, -\/sbpt, -\/fd, -\/fiv, -\/fi, -\/vds -\/om}  \\\cline{1-3}
+\end{TabularC}
+
+
+The {\ttfamily -\/tuv, -\/ptv, -\/og} flags always need to be enabled manually.
+
+There are also some common flags to customize Assimp\textquotesingle{}s logging behaviour\+:
+
+\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}{\bf Name }&{\bf Description  }\\\cline{1-2}
+{\ttfamily -\/l} or {\ttfamily --show-\/log} &Show log file on console window (stderr)  \\\cline{1-2}
+{\ttfamily -\/lo$<$file$>$} or {\ttfamily --log-\/out=$<$file$>$} &Streams the log to $<$file$>$  \\\cline{1-2}
+{\ttfamily -\/v} or {\ttfamily --verbose} &Enables verbose logging. Debug messages will be produced too. This might decrease loading performance and result in {\itshape very} long logs ... use with caution if you experience strange issues.  \\\cline{1-2}
+\end{TabularC}

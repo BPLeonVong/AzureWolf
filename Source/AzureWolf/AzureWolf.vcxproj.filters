@@ -4,9 +4,6 @@
     <Filter Include="Audio">
       <UniqueIdentifier>{27f4ad06-f776-4b95-9c88-0955ec52ac69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BasicFoundations">
-      <UniqueIdentifier>{5f62f421-f87c-46a2-aa69-f8e2ee08c6bc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AzureWolf">
       <UniqueIdentifier>{45497741-148e-465e-b391-f21b11d360be}</UniqueIdentifier>
     </Filter>
@@ -30,9 +27,6 @@
     </Filter>
     <Filter Include="Renderer\Graphics3D">
       <UniqueIdentifier>{e8a7ce5a-4a2e-437b-bb03-3a4e87fded86}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BasicFoundations\MainLoop">
-      <UniqueIdentifier>{cbca9bfd-1e31-41fd-9c92-862c4ef15b3c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Renderer\UserInterface">
       <UniqueIdentifier>{f27ca54b-5baf-447c-823e-31248f7f2a9e}</UniqueIdentifier>
@@ -66,6 +60,12 @@
     </Filter>
     <Filter Include="CoreSystems\FileIO">
       <UniqueIdentifier>{5705a04d-16bf-43da-a2ad-7ca483f2d8bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicFoundations">
+      <UniqueIdentifier>{5f62f421-f87c-46a2-aa69-f8e2ee08c6bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicFoundations\MainLoop">
+      <UniqueIdentifier>{cbca9bfd-1e31-41fd-9c92-862c4ef15b3c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +159,9 @@
     </ClInclude>
     <ClInclude Include="Core Systems\FileIO\AW_FileIO.h">
       <Filter>CoreSystems\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\math_3d.h">
+      <Filter>CoreSystems\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

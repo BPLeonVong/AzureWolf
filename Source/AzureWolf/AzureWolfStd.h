@@ -33,8 +33,12 @@
 #include <queue>
 #include <map>
 
+#define GLEW_STATIC 1
+
 //Include OpenGl
+#include <GL/glew.h>
 #include <gl/glu.h>
+
 
 using std::tr1::shared_ptr;
 using std::tr1::weak_ptr;
@@ -52,9 +56,11 @@ public:
 };
 
 //3rd Party
-#include "../3rd_Party/tinyxml_2_6_2/tinyxml.h"
-#include "../3rd_Party/FastDelegate/FastDelegate.h"
+#include <tinyxml.h>
+#include <FastDelegate.h>
 #include <zlib.h>
+#include <stb_image.h>
+
 
 using fastdelegate::MakeDelegate;
 

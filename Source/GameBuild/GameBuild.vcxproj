@@ -54,8 +54,8 @@
     <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>
     <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
     <TargetName>$(ProjectName)$(PlatformName)$(ConfigurationType)</TargetName>
-    <IncludePath>$(SolutionDir)\Source\Lib\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Lib\AzureWolfWin32</LibraryPath>
+    <IncludePath>$(SolutionDir)\Source\Lib\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp--2.0.863-sdk;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Lib\AzureWolfWin32;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -88,7 +88,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>AzureWolfWin32D.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>AzureWolfWin32D.lib;opengl32.lib;glew32s.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)\..\Lib\AzureWolfWin32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>

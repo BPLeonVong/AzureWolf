@@ -1,4 +1,4 @@
-﻿Build started 2015-01-08 5:22:47 PM.
+﻿Build started 2015-01-11 9:30:33 PM.
      1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "..\Temp\Builds\AzureWolfWin32\AzureWolf.lastbuildstate".
@@ -55,4 +55,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.39
+Time Elapsed 00:00:01.25

@@ -1,0 +1,302 @@
+\hypertarget{materials_General}{}\section{General}\label{materials_General}
+All materials are stored in an array of ai\+Material inside the ai\+Scene.
+
+Each ai\+Mesh refers to one material by its index in the array. Due to the vastly diverging definitions and usages of material parameters there is no hard definition of a material structure. Instead a material is defined by a set of properties accessible by their names. Have a look at ai\+Material.\+h to see what types of properties are defined. In this file there are also various functions defined to test for the presence of certain properties in a material and retrieve their values.\hypertarget{materials_mat_tex}{}\section{Textures}\label{materials_mat_tex}
+Textures are organized in stacks, each stack being evaluated independently. The final color value from a particular texture stack is used in the shading equation. For example, the computed color value of the diffuse texture stack (ai\+Texture\+Type\+\_\+\+D\+I\+F\+F\+U\+S\+E) is multipled with the amount of incoming diffuse light to obtain the final diffuse color of a pixel.
+
+
+\begin{DoxyCode}
+ Stack                               Resulting equation
+
+------------------------
+| Constant base color  |             color
+------------------------ 
+| Blend operation 0    |             +
+------------------------
+| Strength factor 0    |             0.25*
+------------------------
+| Texture 0            |             texture\_0
+------------------------ 
+| Blend operation 1    |             *
+------------------------
+| Strength factor 1    |             1.0*
+------------------------
+| Texture 1            |             texture\_1
+------------------------
+  ...                                ...
+\end{DoxyCode}
+\hypertarget{materials_keys}{}\section{Constants}\label{materials_keys}
+All material key constants start with \textquotesingle{}A\+I\+\_\+\+M\+A\+T\+K\+E\+Y\textquotesingle{} (it\textquotesingle{}s an ugly macro for historical reasons, don\textquotesingle{}t ask).
+
+\begin{TabularC}{5}
+\hline
+\rowcolor{lightgray}{\bf Name }&{\bf Data Type }&{\bf Default Value }&{\bf Meaning }&{\bf Notes  }\\\cline{1-5}
+{\ttfamily N\+A\+M\+E} &ai\+String &n/a &The name of the material, if available.  &Ignored by {\ttfamily ai\+Process\+\_\+\+Remove\+Redundant\+Materials}. Materials are considered equal even if their names are different.  \\\cline{1-5}
+{\ttfamily C\+O\+L\+O\+R\+\_\+\+D\+I\+F\+F\+U\+S\+E} &ai\+Color3\+D &black (0,0,0) &Diffuse color of the material. This is typically scaled by the amount of incoming diffuse light (e.\+g. using gouraud shading)  &---  \\\cline{1-5}
+{\ttfamily C\+O\+L\+O\+R\+\_\+\+S\+P\+E\+C\+U\+L\+A\+R} &ai\+Color3\+D &black (0,0,0) &Specular color of the material. This is typically scaled by the amount of incoming specular light (e.\+g. using phong shading)  &---  \\\cline{1-5}
+{\ttfamily C\+O\+L\+O\+R\+\_\+\+A\+M\+B\+I\+E\+N\+T} &ai\+Color3\+D &black (0,0,0) &Ambient color of the material. This is typically scaled by the amount of ambient light  &---  \\\cline{1-5}
+{\ttfamily C\+O\+L\+O\+R\+\_\+\+E\+M\+I\+S\+S\+I\+V\+E} &ai\+Color3\+D &black (0,0,0) &Emissive color of the material. This is the amount of light emitted by the object. In real time applications it will usually not affect surrounding objects, but raytracing applications may wish to treat emissive objects as light sources.  &--- 
+
+\\\cline{1-5}
+{\ttfamily C\+O\+L\+O\+R\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T} &ai\+Color3\+D &black (0,0,0) &Defines the transparent color of the material, this is the color to be multiplied with the color of translucent light to construct the final \textquotesingle{}destination color\textquotesingle{} for a particular position in the screen buffer. T  &--- 
+
+\\\cline{1-5}
+{\ttfamily W\+I\+R\+E\+F\+R\+A\+M\+E} &int &false &Specifies whether wireframe rendering must be turned on for the material. 0 for false, !0 for true.  &--- 
+
+\\\cline{1-5}
+{\ttfamily T\+W\+O\+S\+I\+D\+E\+D} &int &false &Specifies whether meshes using this material must be rendered without backface culling. 0 for false, !0 for true.  &Some importers set this property if they don\textquotesingle{}t know whether the output face oder is right. As long as it is not set, you may safely enable backface culling. 
+
+\\\cline{1-5}
+{\ttfamily S\+H\+A\+D\+I\+N\+G\+\_\+\+M\+O\+D\+E\+L} &int &gouraud &One of the \#ai\+Shading\+Mode enumerated values. Defines the library shading model to use for (real time) rendering to approximate the original look of the material as closely as possible.  &The presence of this key might indicate a more complex material. If absent, assume phong shading only if a specular exponent is given. 
+
+\\\cline{1-5}
+{\ttfamily B\+L\+E\+N\+D\+\_\+\+F\+U\+N\+C} &int &false &One of the \#ai\+Blend\+Mode enumerated values. Defines how the final color value in the screen buffer is computed from the given color at that position and the newly computed color from the material. Simply said, alpha blending settings. &-\/ 
+
+\\\cline{1-5}
+{\ttfamily O\+P\+A\+C\+I\+T\+Y} &float &1.\+0 &Defines the opacity of the material in a range between 0..1. &Use this value to decide whether you have to activate alpha blending for rendering. {\ttfamily O\+P\+A\+C\+I\+T\+Y} != 1 usually also implies T\+W\+O\+S\+I\+D\+E\+D=1 to avoid cull artifacts. 
+
+\\\cline{1-5}
+{\ttfamily S\+H\+I\+N\+I\+N\+E\+S\+S} &float &0.\+f &Defines the shininess of a phong-\/shaded material. This is actually the exponent of the phong specular equation &{\ttfamily S\+H\+I\+N\+I\+N\+E\+S\+S}=0 is equivalent to {\ttfamily S\+H\+A\+D\+I\+N\+G\+\_\+\+M\+O\+D\+E\+L}={\ttfamily ai\+Shading\+Mode\+\_\+\+Gouraud}. 
+
+\\\cline{1-5}
+{\ttfamily S\+H\+I\+N\+I\+N\+E\+S\+S\+\_\+\+S\+T\+R\+E\+N\+G\+T\+H} &float &1.\+0 &Scales the specular color of the material. &This value is kept separate from the specular color by most modelers, and so do we. 
+
+\\\cline{1-5}
+{\ttfamily R\+E\+F\+R\+A\+C\+T\+I} &float &1.\+0 &Defines the Index Of Refraction for the material. That\textquotesingle{}s not supported by most file formats. &Might be of interest for raytracing. 
+
+\\\cline{1-5}
+{\ttfamily T\+E\+X\+T\+U\+R\+E(t,n)} &ai\+String &n/a &Defines the path to the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{}, where \textquotesingle{}n\textquotesingle{} is any value $>$= 0 and \textquotesingle{}t\textquotesingle{} is one of the \#ai\+Texture\+Type enumerated values. &See the \textquotesingle{}Textures\textquotesingle{} section above. 
+
+\\\cline{1-5}
+{\ttfamily T\+E\+X\+B\+L\+E\+N\+D(t,n)} &float &n/a &Defines the strength the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{}. All color components (rgb) are multipled with this factor {\itshape before} any further processing is done. &-\/ 
+
+\\\cline{1-5}
+{\ttfamily T\+E\+X\+O\+P(t,n)} &int &n/a &One of the \#ai\+Texture\+Op enumerated values. Defines the arithmetic operation to be used to combine the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{} with the n-\/1\textquotesingle{}th. {\ttfamily T\+E\+X\+O\+P(t,0)} refers to the blend operation between the base color for this stack (e.\+g. {\ttfamily C\+O\+L\+O\+R\+\_\+\+D\+I\+F\+F\+U\+S\+E} for the diffuse stack) and the first texture. &-\/ 
+
+\\\cline{1-5}
+{\ttfamily M\+A\+P\+P\+I\+N\+G(t,n)} &int &n/a &Defines how the input mapping coordinates for sampling the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{} are computed. Usually explicit U\+V coordinates are provided, but some model file formats might also be using basic shapes, such as spheres or cylinders, to project textures onto meshes. &See the \textquotesingle{}Textures\textquotesingle{} section below. \#ai\+Process\+\_\+\+Gen\+U\+V\+Coords can be used to let Assimp compute proper U\+V coordinates from projective mappings. 
+
+\\\cline{1-5}
+{\ttfamily U\+V\+W\+S\+R\+C(t,n)} &int &n/a &Defines the U\+V channel to be used as input mapping coordinates for sampling the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{}. All meshes assigned to this material share the same U\+V channel setup &Presence of this key implies {\ttfamily M\+A\+P\+P\+I\+N\+G(t,n)} to be \#ai\+Texture\+Mapping\+\_\+\+U\+V. See \hyperlink{materials_uvwsrc}{How to map U\+V channels to textures (M\+A\+T\+K\+E\+Y\+\_\+\+U\+V\+W\+S\+R\+C)} for more details.  
+
+\\\cline{1-5}
+{\ttfamily M\+A\+P\+P\+I\+N\+G\+M\+O\+D\+E\+\_\+\+U(t,n)} &int &n/a &Any of the \#ai\+Texture\+Map\+Mode enumerated values. Defines the texture wrapping mode on the x axis for sampling the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{}. \textquotesingle{}Wrapping\textquotesingle{} occurs whenever U\+Vs lie outside the 0..1 range.  &-\/ 
+
+\\\cline{1-5}
+{\ttfamily M\+A\+P\+P\+I\+N\+G\+M\+O\+D\+E\+\_\+\+V(t,n)} &int &n/a &Wrap mode on the v axis. See {\ttfamily M\+A\+P\+P\+I\+N\+G\+M\+O\+D\+E\+\_\+\+U}.  &-\/ 
+
+\\\cline{1-5}
+{\ttfamily T\+E\+X\+M\+A\+P\+\_\+\+A\+X\+I\+S(t,n)} &ai\+Vector3\+D &n/a &Defines the base axis to to compute the mapping coordinates for the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{} from. This is not required for U\+V-\/mapped textures. For instance, if {\ttfamily M\+A\+P\+P\+I\+N\+G(t,n)} is \#ai\+Texture\+Mapping\+\_\+\+S\+P\+H\+E\+R\+E, U and V would map to longitude and latitude of a sphere around the given axis. The axis is given in local mesh space. &-\/ 
+
+\\\cline{1-5}
+{\ttfamily T\+E\+X\+F\+L\+A\+G\+S(t,n)} &int &n/a &Defines miscellaneous flag for the n\textquotesingle{}th texture on the stack \textquotesingle{}t\textquotesingle{}. This is a bitwise combination of the \#ai\+Texture\+Flags enumerated values. &-\/ 
+
+\\\cline{1-5}
+\end{TabularC}
+\hypertarget{materials_cpp}{}\section{C++-\/\+A\+P\+I}\label{materials_cpp}
+Retrieving a property from a material is done using various utility functions. For C++ it\textquotesingle{}s simply calling ai\+Material\+::\+Get()
+
+
+\begin{DoxyCode}
+aiMaterial* mat = .....
+
+\textcolor{comment}{// The generic way}
+if(AI\_SUCCESS != mat->Get(<material-key>,<where-to-store>)) \{
+   \textcolor{comment}{// handle epic failure here}
+\}
+\end{DoxyCode}
+
+
+Simple, isn\textquotesingle{}t it? To get the name of a material you would use
+
+
+\begin{DoxyCode}
+aiString name;
+mat->Get(AI\_MATKEY\_NAME,name);
+\end{DoxyCode}
+
+
+Or for the diffuse color (\textquotesingle{}color\textquotesingle{} won\textquotesingle{}t be modified if the property is not set)
+
+
+\begin{DoxyCode}
+aiColor3D color (0.f,0.f,0.f);
+mat->Get(AI\_MATKEY\_COLOR\_DIFFUSE,color);
+\end{DoxyCode}
+
+
+{\bfseries Note\+:} Get() is actually a template with explicit specializations for ai\+Color3\+D, ai\+Color4\+D, ai\+String, float, int and some others. Make sure that the type of the second parameter matches the expected data type of the material property (no compile-\/time check yet!). Don\textquotesingle{}t follow this advice if you wish to encounter very strange results.\hypertarget{materials_C}{}\section{C-\/\+A\+P\+I}\label{materials_C}
+For good old C it\textquotesingle{}s slightly different. Take a look at the ai\+Get\+Material\+Get$<$data-\/type$>$ functions.
+
+
+\begin{DoxyCode}
+aiMaterial* mat = .....
+
+if(AI\_SUCCESS != aiGetMaterialFloat(mat,<material-key>,<where-to-store>)) \{
+   \textcolor{comment}{// handle epic failure here}
+\}
+\end{DoxyCode}
+
+
+To get the name of a material you would use
+
+
+\begin{DoxyCode}
+aiString name;
+aiGetMaterialString(mat,AI\_MATKEY\_NAME,&name);
+\end{DoxyCode}
+
+
+Or for the diffuse color (\textquotesingle{}color\textquotesingle{} won\textquotesingle{}t be modified if the property is not set)
+
+
+\begin{DoxyCode}
+aiColor3D color (0.f,0.f,0.f);
+aiGetMaterialColor(mat,AI\_MATKEY\_COLOR\_DIFFUSE,&color);
+\end{DoxyCode}
+\hypertarget{materials_uvwsrc}{}\section{How to map U\+V channels to textures (\+M\+A\+T\+K\+E\+Y\+\_\+\+U\+V\+W\+S\+R\+C)}\label{materials_uvwsrc}
+The M\+A\+T\+K\+E\+Y\+\_\+\+U\+V\+W\+S\+R\+C property is only present if the source format doesn\textquotesingle{}t specify an explicit mapping from textures to U\+V channels. Many formats don\textquotesingle{}t do this and A\+S\+S\+I\+M\+P is not aware of a perfect rule either.
+
+Your handling of U\+V channels needs to be flexible therefore. Our recommendation is to use logic like this to handle most cases properly\+:
+
+\begin{DoxyVerb}have only one uv channel?
+   assign channel 0 to all textures and break
+
+for all textures
+   have uvwsrc for this texture?
+      assign channel specified in uvwsrc
+   else
+      assign channels in ascending order for all texture stacks, 
+        i.e. diffuse1 gets channel 1, opacity0 gets channel 0.\end{DoxyVerb}
+\hypertarget{materials_pseudo}{}\section{Pseudo Code Listing}\label{materials_pseudo}
+For completeness, the following is a very rough pseudo-\/code sample showing how to evaluate Assimp materials in your shading pipeline. You\textquotesingle{}ll probably want to limit your handling of all those material keys to a reasonable subset suitable for your purposes (for example most 3d engines won\textquotesingle{}t support highly complex multi-\/layer materials, but many 3d modellers do).
+
+Also note that this sample is targeted at a (shader-\/based) rendering pipeline for real time graphics.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// ---------------------------------------------------------------------------------------}
+\textcolor{comment}{// Evaluate multiple textures stacked on top of each other}
+float3 EvaluateStack(stack)
+\{
+  \textcolor{comment}{// For the 'diffuse' stack stack.base\_color would be COLOR\_DIFFUSE}
+  \textcolor{comment}{// and TEXTURE(aiTextureType\_DIFFUSE,n) the n'th texture.}
+
+  float3 base = stack.base\_color;
+  \textcolor{keywordflow}{for} (every texture in stack)
+  \{
+    \textcolor{comment}{// assuming we have explicit & pretransformed UVs for this texture}
+    float3 color = SampleTexture(texture,uv); 
+
+    \textcolor{comment}{// scale by texture blend factor}
+    color *= texture.blend;
+
+    \textcolor{keywordflow}{if} (texture.op == add)
+      base += color;
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (texture.op == multiply)
+      base *= color;
+    \textcolor{keywordflow}{else} \textcolor{comment}{// other blend ops go here}
+  \}
+  \textcolor{keywordflow}{return} base;
+\}
+
+\textcolor{comment}{// ---------------------------------------------------------------------------------------}
+\textcolor{comment}{// Compute the diffuse contribution for a pixel}
+float3 ComputeDiffuseContribution()
+\{
+  \textcolor{keywordflow}{if} (shading == none)
+     \textcolor{keywordflow}{return} float3(1,1,1);
+
+  float3 intensity (0,0,0);
+  \textcolor{keywordflow}{for} (all lights in range)
+  \{
+    \textcolor{keywordtype}{float} fac = 1.f;
+    \textcolor{keywordflow}{if} (shading == gouraud)
+      fac =  lambert-term ..
+    \textcolor{keywordflow}{else} \textcolor{comment}{// other shading modes go here}
+
+    \textcolor{comment}{// handling of different types of lights, such as point or spot lights}
+    \textcolor{comment}{// ...}
+
+    \textcolor{comment}{// and finally sum the contribution of this single light ...}
+    intensity += light.diffuse\_color * fac;
+  \}
+  \textcolor{comment}{// ... and combine the final incoming light with the diffuse color}
+  \textcolor{keywordflow}{return} EvaluateStack(diffuse) * intensity;
+\}
+
+\textcolor{comment}{// ---------------------------------------------------------------------------------------}
+\textcolor{comment}{// Compute the specular contribution for a pixel}
+float3 ComputeSpecularContribution()
+\{
+  \textcolor{keywordflow}{if} (shading == gouraud || specular\_strength == 0 || specular\_exponent == 0)
+    \textcolor{keywordflow}{return} float3(0,0,0);
+
+  float3 intensity (0,0,0);
+  \textcolor{keywordflow}{for} (all lights in range)
+  \{
+    \textcolor{keywordtype}{float} fac = 1.f;
+    \textcolor{keywordflow}{if} (shading == phong)
+      fac =  phong-term ..
+    \textcolor{keywordflow}{else} \textcolor{comment}{// other specular shading modes go here}
+
+    \textcolor{comment}{// handling of different types of lights, such as point or spot lights}
+    \textcolor{comment}{// ...}
+
+    \textcolor{comment}{// and finally sum the specular contribution of this single light ...}
+    intensity += light.specular\_color * fac;
+  \}
+  \textcolor{comment}{// ... and combine the final specular light with the specular color}
+  \textcolor{keywordflow}{return} EvaluateStack(specular) * intensity * specular\_strength;
+\}
+
+\textcolor{comment}{// ---------------------------------------------------------------------------------------}
+\textcolor{comment}{// Compute the ambient contribution for a pixel}
+float3 ComputeAmbientContribution()
+\{
+  \textcolor{keywordflow}{if} (shading == none)
+     \textcolor{keywordflow}{return} float3(0,0,0);
+
+  float3 intensity (0,0,0);
+  \textcolor{keywordflow}{for} (all lights in range)
+  \{
+    \textcolor{keywordtype}{float} fac = 1.f;
+
+    \textcolor{comment}{// handling of different types of lights, such as point or spot lights}
+    \textcolor{comment}{// ...}
+
+    \textcolor{comment}{// and finally sum the ambient contribution of this single light ...}
+    intensity += light.ambient\_color * fac;
+  \}
+  \textcolor{comment}{// ... and combine the final ambient light with the ambient color}
+  \textcolor{keywordflow}{return} EvaluateStack(ambient) * intensity;
+\}
+
+\textcolor{comment}{// ---------------------------------------------------------------------------------------}
+\textcolor{comment}{// Compute the final color value for a pixel}
+\textcolor{comment}{// @param prev Previous color at that position in the framebuffer}
+float4 PimpMyPixel (float4 prev)
+\{
+  \textcolor{comment}{// .. handle displacement mapping per vertex}
+  \textcolor{comment}{// .. handle bump/normal mapping}
+
+  \textcolor{comment}{// Get all single light contribution terms}
+  float3 diff = ComputeDiffuseContribution();
+  float3 spec = ComputeSpecularContribution(); 
+  float3 ambi = ComputeAmbientContribution();
+
+  \textcolor{comment}{// .. and compute the final color value for this pixel}
+  float3 color = diff + spec + ambi;
+  float3 opac  = EvaluateStack(opacity);
+
+  \textcolor{comment}{// note the *slightly* strange meaning of additive and multiplicative blending here ...}
+  \textcolor{comment}{// those names will most likely be changed in future versions}
+  \textcolor{keywordflow}{if} (blend\_func == add)
+       \textcolor{keywordflow}{return} prev+color*opac;
+  \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (blend\_func == multiply)
+       \textcolor{keywordflow}{return} prev*(1.0-opac)+prev*opac;
+
+   \textcolor{keywordflow}{return} color;
+\}
+\end{DoxyCode}
+ 

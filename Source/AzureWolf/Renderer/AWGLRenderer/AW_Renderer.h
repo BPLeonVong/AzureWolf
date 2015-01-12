@@ -22,6 +22,7 @@ class RendererData;
         int numMultisamples);
 	
 	private:
+		GLenum IGLEW;
 	public:
 		RendererData* mData;
 		void RenderScene();

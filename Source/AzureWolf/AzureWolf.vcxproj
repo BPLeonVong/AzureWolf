@@ -31,6 +31,7 @@
     <ClInclude Include="Core Systems\Utilities\AWInit.h" />
     <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h" />
     <ClInclude Include="Core Systems\Utilities\DataTypes\AWFloat4.h" />
+    <ClInclude Include="Core Systems\Utilities\math_3d.h" />
     <ClInclude Include="Core Systems\Utilities\templates.h" />
     <ClInclude Include="Core Systems\Utilities\types.h" />
     <ClInclude Include="Renderer\AWGLRenderer\AW_GLRenderData.h" />
@@ -138,7 +139,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>$(ProjectName)$(PlatformName)D</TargetName>
-    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\stb;$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\FastDelegate;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(ProjectDir)\..\3rd_Party\assimp--2.0.863-sdk;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <TargetName>$(ProjectName)$(PlatformName)D</TargetName>

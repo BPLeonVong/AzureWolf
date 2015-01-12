@@ -1,0 +1,12 @@
+\hypertarget{importer_notes_overview}{}\section{Overview}\label{importer_notes_overview}
+This page discusses both Assimps scalability in threaded environments, the precautions to be taken in order to use it from multiple threads concurrently and finally its own ability to parallelize certain tasks internally.\hypertarget{threading_threadsafety}{}\section{Thread-\/safety / Using Assimp concurrently from several threads}\label{threading_threadsafety}
+The library can be accessed by multiple threads simultaneously, as long as the following prerequisites are fulfilled\+: 
+\begin{DoxyItemize}
+\item When using the C++-\/\+A\+P\+I make sure you create a new Importer instance for each thread. Constructing instances of Importer is expensive, so it might be a good idea to let every thread maintain its own thread-\/local instance (use it to load as many models as you want). 
+\item The C-\/\+A\+P\+I is threadsafe as long as A\+I\+\_\+\+C\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+F\+E is defined. That\textquotesingle{}s the default.  
+\item When supplying custom I\+O logic, make sure your underyling implementation is thead-\/safe. 
+\item Custom log streams or logger replacements have to be thread-\/safe, too. 
+\end{DoxyItemize}
+
+Multiple concurrent imports may or may not be beneficial, however. For certain file formats in conjunction with little postprocessing I\+O times tend to be the performance bottleneck, using multiple threads does therefore not help. Intense postprocessing (especially the O(nlogn) steps \#ai\+Process\+\_\+\+Join\+Identical\+Vertices, \#ai\+Process\+\_\+\+Gen\+Smooth\+Normals and \#ai\+Process\+\_\+\+Calc\+Tangent\+Space) together with file formats like X or Collada, which are slow to parse, might scale well with multiple concurrent imports.\hypertarget{threading_automt}{}\section{Internal threading}\label{threading_automt}
+Automatic multi-\/threading is not currently implemented. 

@@ -1,0 +1,68 @@
+\hypertarget{install_install_prebuilt}{}\section{Using the pre-\/built libraries with Visual C++ 8/9}\label{install_install_prebuilt}
+If you develop at Visual Studio 2005 or 2008, you can simply use the pre-\/built linker libraries provided in the distribution. Extract all files to a place of your choice. A directory called \char`\"{}\+A\+S\+S\+I\+M\+P\char`\"{} will be created there. Add the A\+S\+S\+I\+M\+P/include path to your include paths (Menu-\/$>$Extras-\/$>$Options-\/$>$Projects and Solutions-\/$>$V\+C++ Directories-\/$>$Include files) and the A\+S\+S\+I\+M\+P/lib/$<$Compiler$>$ path to your linker paths (Menu-\/$>$Extras-\/$>$Options-\/$>$Projects and Solutions-\/$>$V\+C++ Directories-\/$>$Library files). This is neccessary only once to setup all paths inside you I\+D\+E.
+
+To use the library in your C++ project you have to include either $<$assimp.\+hpp$>$ or $<$assimp.\+h$>$ plus some others starting with $<$ai\+Types.\+h$>$. If you set up your I\+D\+E correctly the compiler should be able to find the files. Then you have to add the linker library to your project dependencies. Link to $<$assimp\+\_\+root$>$/lib/$<$config-\/name$>$/assimp.lib. config-\/name is one of the predefined project configs. For static linking, use release/debug. See the sections below on this page for more information on the other build configs. If done correctly you should now be able to compile, link, run and use the application. If the linker complains about some integral functions being defined twice you propably have mixed the runtimes. Recheck the project configuration (project properties -\/$>$ C++ -\/$>$ Code generation -\/$>$ Runtime) if you use static runtimes (Multithreaded / Multithreaded Debug) or dynamic runtimes (Multithreaded D\+L\+L / Multithreaded Debug D\+L\+L). Choose the A\+S\+S\+I\+M\+P linker lib accordingly. ~\newline
+ Please don\textquotesingle{}t forget to also read the \hyperlink{install_assimp_stl}{Microsoft Compilers \& S\+T\+L} section on M\+S\+V\+C and the S\+T\+L.\hypertarget{install_assimp_stl}{}\section{Microsoft Compilers \& S\+T\+L}\label{install_assimp_stl}
+In V\+C8 and V\+C9 Microsoft has introduced some S\+T\+L debugging features. A good example are improved iterator checks and various useful debug checks. Actually they are really helpful for debugging, but they\textquotesingle{}re extremely slow. They\textquotesingle{}re so extremely slow that they can make the S\+T\+L up to 100 times slower (imagine a {\itshape std\+::vector$<$\+T$>$\+::operator\mbox{[}\mbox{]} } performing 3 or 4 single checks! scary ...).
+
+These security enhancements are -\/ thanks M\+S! -\/ also active in release builds, rendering A\+S\+S\+I\+M\+P several times slower. However, it is possible to disable them by defining
+
+
+\begin{DoxyCode}
+\_HAS\_ITERATOR\_DEBUGGING=0
+\_SECURE\_SCL=0
+\end{DoxyCode}
+
+
+in the preprocessor options (or alternatively in the source code, just before the S\+T\+L is included for the first time). {\bfseries A\+S\+S\+I\+M\+P\textquotesingle{}s vc8 and vc9 configs enable these flags by default}.
+
+{\itshape If you\textquotesingle{}re linking statically against A\+S\+S\+I\+M\+P\+:} Make sure your applications uses the same S\+Tl settings! If you do not, there are two binary incompatible S\+T\+L versions mangled together and you\textquotesingle{}ll crash. Alternatively you can disable the fast S\+T\+L settings for A\+S\+S\+I\+M\+P by removing the \textquotesingle{}Fast\+S\+T\+L\textquotesingle{} property sheet from the vc project file.
+
+{\itshape If you\textquotesingle{}re using A\+S\+S\+I\+M\+P in a D\+L\+L\+:} It\textquotesingle{}s ok. There\textquotesingle{}s no S\+T\+L used in the D\+L\+L interface, so it doesn\textquotesingle{}t care whether your application uses the same S\+T\+L settings or not. ~\newline
+~\newline
+ Another option is to build against a different S\+T\+L implementation, for example S\+Tlport. There\textquotesingle{}s a special \hyperlink{install_assimp_stlport}{Building against S\+T\+Lport} section which describes how to achieve this.\hypertarget{install_install_own}{}\section{Building the library from scratch}\label{install_install_own}
+To build the library on your own you first have to get hold of the dependencies. Fortunately, special attention was paid to keep the list of dependencies short. Unfortunately, the only dependency is \href{http://www.boost.org}{\tt boost} which can be a bit painful to set up for certain development environments. Boost is a widely used collection of classes and functions for various purposes. Chances are that it was already installed along with your compiler. If not, you have to install it for yourself. Read the \char`\"{}\+Getting Started\char`\"{} section of the Boost documentation for how to setup boost. Visual\+Studio users can use a comfortable installer from \href{http://www.boost-consulting.com/products/free}{\tt http\+://www.\+boost-\/consulting.\+com/products/free}. Choose the appropriate version of boost for your runtime of choice.
+
+{\bfseries If you don\textquotesingle{}t want to use boost}, you can build against our {\itshape \char`\"{}\+Boost-\/\+Workaround\char`\"{}}. It consists of very small (dummy) implementations of the various boost utility classes used. However, you\textquotesingle{}ll loose functionality (e.\+g. threading) by doing this. So, if it is possible to use boost, you should use boost. See the \hyperlink{install_use_noboost}{No\+Boost-\/\+Section } later on this page for more details.
+
+Once boost is working, you have to set up a project for the A\+S\+S\+I\+M\+P library in your favourite I\+D\+E. If you use V\+C2005 or V\+C2008, you can simply load the solution or project files in the workspaces/ folder, otherwise you have to create a new package and add all the headers and source files from the include/ and code/ directories. Set the temporary output folder to obj/, for example, and redirect the output folder to bin/. Then build the library -\/ it should compile and link fine.
+
+The last step is to integrate the library into your project. This is basically the same task as described in the \char`\"{}\+Using the pre-\/built libraries\char`\"{} section above\+: add the include/ and bin/ directories to your I\+D\+E\textquotesingle{}s paths so that the compiler can find the library files. Alternatively you can simply add the A\+S\+S\+I\+M\+P project to your project\textquotesingle{}s overall solution and build it inside your solution.\hypertarget{install_use_noboost}{}\section{Building without boost.}\label{install_use_noboost}
+The Boost-\/\+Workaround consists of dummy replacements for some boost utility templates. Currently there are replacements for 
+\begin{DoxyItemize}
+\item {\itshape boost.\+scoped\+\_\+ptr} 
+\item {\itshape boost.\+scoped\+\_\+array} 
+\item {\itshape boost.\+format}  
+\item {\itshape boost.\+random}  
+\item {\itshape boost.\+common\+\_\+factor}  
+\item {\itshape boost.\+foreach}  
+\item {\itshape boost.\+tuple} 
+\end{DoxyItemize}These implementations are very limited and are not intended for use outside A\+S\+S\+I\+M\+P. A compiler with full support for partial template specializations is required. To enable the workaround, put the following in your compiler\textquotesingle{}s list of predefined macros\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define ASSIMP\_BUILD\_BOOST\_WORKAROUND}
+\end{DoxyCode}
+ ~\newline
+ If you\textquotesingle{}re working with the provided solutions for Visual Studio use the {\itshape -\/noboost} build configs. ~\newline
+
+
+{\bfseries A\+S\+S\+I\+M\+P\+\_\+\+B\+U\+I\+L\+D\+\_\+\+B\+O\+O\+S\+T\+\_\+\+W\+O\+R\+K\+A\+R\+O\+U\+N\+D} implies {\bfseries A\+S\+S\+I\+M\+P\+\_\+\+B\+U\+I\+L\+D\+\_\+\+S\+I\+N\+G\+L\+E\+T\+H\+R\+E\+A\+D\+E\+D}. ~\newline
+ See the \hyperlink{install_assimp_st}{Single-\/threaded build} section for more details.\hypertarget{install_assimp_make}{}\section{Build with M\+A\+K\+E}\label{install_assimp_make}
+To build Assimp with M\+A\+K\+E, navigate to the {\ttfamily code} directory and run 
+\begin{DoxyCode}
+make
+\end{DoxyCode}
+ respectively 
+\begin{DoxyCode}
+make -fmakefile.mingw
+\end{DoxyCode}
+ for mingw-\/make. For a {\itshape -\/noboost}-\/\+Build, append 
+\begin{DoxyCode}
+NOBOOST=1
+\end{DoxyCode}
+\hypertarget{install_assimp_st}{}\section{Single-\/threaded build}\label{install_assimp_st}
+-- currently there is no difference between single-\/thread and normal builds --\hypertarget{install_assimp_dll}{}\section{D\+L\+L build}\label{install_assimp_dll}
+A\+S\+S\+I\+M\+P can be built as D\+L\+L. You just need to select a -\/dll config from the list of project configs and you\textquotesingle{}re fine. Don\textquotesingle{}t forget to copy the D\+L\+L to the directory of your executable \+:-\/)
+
+{\bfseries N\+O\+T\+E\+:} Theoretically A\+S\+S\+I\+M\+P-\/dll can be used with multithreaded (non-\/dll) runtime libraries, as long as you don\textquotesingle{}t utilize any non-\/public stuff from the code dir. However, if you happen to encounter {\itshape very} strange problems try changing the runtime to multithreaded (Debug) D\+L\+L.\hypertarget{install_assimp_stlport}{}\section{Building against S\+T\+Lport}\label{install_assimp_stlport}
+If your compiler\textquotesingle{}s default implementation of the S\+T\+L is too slow, lacks some features, contains bugs or if you just want to tweak A\+S\+S\+I\+M\+P\textquotesingle{}s performance a little try a build against S\+T\+Lport. S\+T\+Lport is a free, fast and secure S\+T\+L replacement that works with all major compilers and platforms. To get it visit their website at \href{http://www.stlport.org}{\tt $<$stlport.\+org$>$} and download the latest S\+T\+Lport release. Usually you\textquotesingle{}ll just need to run \textquotesingle{}configure\textquotesingle{} + a makefile (see the R\+E\+A\+D\+M\+E for more details). Don\textquotesingle{}t miss to add $<$stlport\+\_\+root$>$/stlport to your compiler\textquotesingle{}s default include paths -\/ {\bfseries prior} to the directory where the compiler vendor\textquotesingle{}s S\+T\+L lies. Do the same for $<$stlport\+\_\+root$>$/lib and recompile A\+S\+S\+I\+M\+P. To ensure you\textquotesingle{}re really building against S\+T\+Lport see ai\+Get\+Compile\+Flags(). ~\newline
+ Usually building A\+S\+S\+I\+M\+P against S\+T\+Lport yields a better overall performance so it might be worth a try if the library is too slow for you. 
