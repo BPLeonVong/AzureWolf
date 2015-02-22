@@ -24,9 +24,17 @@ namespace AW
 		};
 
 		FileIO();
-		FileIO(const std::string& filename,int mode);
+		FileIO(const std::string& fileName,int mode);
 		~FileIO();
+
+		bool LoadFileRaw(std::string& fileName, char** data, unsigned int* size);
+
+		bool Open(const std::string& fileName, int mode);
+		bool Close();
 	
+
+		operator bool () const;
+
 	private:
 		FILE* mFile;
 		int mMode;

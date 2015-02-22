@@ -51,11 +51,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>
+    <OutDir>..\Build\$(ProjectName)$(PlatformName)\</OutDir>
     <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
     <TargetName>$(ProjectName)$(PlatformName)$(ConfigurationType)</TargetName>
-    <IncludePath>$(SolutionDir)\Source\Lib\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp--2.0.863-sdk;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Lib\AzureWolfWin32;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\lib\Release\Win32</LibraryPath>
+    <IncludePath>$(SolutionDir)\Source\Build\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp--2.0.863-sdk;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Build\AzureWolfWin32;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,7 +83,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Source\Lib\AzureWolfWin32</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Source\Build\AzureWolfWin32</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

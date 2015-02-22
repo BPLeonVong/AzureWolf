@@ -67,6 +67,9 @@
     <Filter Include="BasicFoundations\MainLoop">
       <UniqueIdentifier>{cbca9bfd-1e31-41fd-9c92-862c4ef15b3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Renderer\Shader">
+      <UniqueIdentifier>{1cb83d65-f2fe-4146-99c4-2838d7f3aa73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AzureWolf\AzureWolf.h">
@@ -252,6 +255,12 @@
     <None Include="Renderer\About.txt" />
     <None Include="Core Systems\FileIO\AW_FileIO.inl">
       <Filter>CoreSystems\FileIO</Filter>
+    </None>
+    <None Include="Renderer\AWGLRenderer\shader.vs">
+      <Filter>Renderer\Shader</Filter>
+    </None>
+    <None Include="Renderer\AWGLRenderer\shader.fs">
+      <Filter>Renderer\Shader</Filter>
     </None>
   </ItemGroup>
 </Project>

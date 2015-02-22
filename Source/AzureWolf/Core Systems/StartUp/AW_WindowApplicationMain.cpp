@@ -1,8 +1,6 @@
 #include "AzureWolfStd.h"
 #include "AW_WindowApplication.h"
 
-#include <iostream>
-
 using namespace std;
 using namespace AW;
 

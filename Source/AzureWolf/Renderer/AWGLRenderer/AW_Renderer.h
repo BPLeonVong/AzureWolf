@@ -23,10 +23,14 @@ class RendererData;
 	
 	private:
 		GLenum IGLEW;
+		GLuint ISHADEPROGRAM;
 	public:
 		RendererData* mData;
 		void RenderScene();
 		void InitGL();
+
+		//void CompileShaders();
+
 
 		//~Renderer ();
 
