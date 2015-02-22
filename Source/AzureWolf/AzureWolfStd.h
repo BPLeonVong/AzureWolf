@@ -27,11 +27,15 @@
 #include <mmsystem.h>
 
 #include <algorithm>
-#include <string>
 #include <list>
 #include <vector>
 #include <queue>
 #include <map>
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
 
 #define GLEW_STATIC 1
 

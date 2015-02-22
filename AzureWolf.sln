@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AzureWolf", "Source\AzureWo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameBuild", "Source\GameBuild\GameBuild.vcxproj", "{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameBuildConsole", "Source\GameBuildConsole\GameBuildConsole.vcxproj", "{E206B5C7-771B-4337-8FF4-FC64956BC390}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -24,6 +26,12 @@ Global
 		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.DebugDLL|Win32.Build.0 = DebugDLL|Win32
 		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.Release|Win32.ActiveCfg = Release|Win32
 		{1CD33AF9-F187-444B-8BC2-9B4DF7DAEB8D}.Release|Win32.Build.0 = Release|Win32
+		{E206B5C7-771B-4337-8FF4-FC64956BC390}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E206B5C7-771B-4337-8FF4-FC64956BC390}.Debug|Win32.Build.0 = Debug|Win32
+		{E206B5C7-771B-4337-8FF4-FC64956BC390}.DebugDLL|Win32.ActiveCfg = Debug|Win32
+		{E206B5C7-771B-4337-8FF4-FC64956BC390}.DebugDLL|Win32.Build.0 = Debug|Win32
+		{E206B5C7-771B-4337-8FF4-FC64956BC390}.Release|Win32.ActiveCfg = Release|Win32
+		{E206B5C7-771B-4337-8FF4-FC64956BC390}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

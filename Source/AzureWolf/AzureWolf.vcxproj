@@ -85,6 +85,8 @@
     <None Include="Core Systems\Utilities\AWTuple.inl" />
     <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl" />
     <None Include="Renderer\About.txt" />
+    <None Include="Renderer\AWGLRenderer\shader.fs" />
+    <None Include="Renderer\AWGLRenderer\shader.vs" />
     <None Include="Resource Cache\About.txt" />
     <None Include="Specific Subsystems\About.txt" />
   </ItemGroup>
@@ -126,7 +128,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>
+    <OutDir>..\Build\$(ProjectName)$(PlatformName)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <OutDir>..\Lib\$(ProjectName)$(PlatformName)\</OutDir>

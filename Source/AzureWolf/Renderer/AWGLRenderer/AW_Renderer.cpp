@@ -3,12 +3,18 @@
 #include "AW_Renderer.h"
 #include "AW_GLRenderData.h"
 #include "../../Core Systems/Utilities/math_3d.h"
+#include "../../Core Systems/FileIO/AW_FileIO.h"
 
 using namespace AW;
 using namespace std;
 
-//GLfloat	rtri;				// Angle For The Triangle ( NEW )
-//GLfloat	rquad;				// Angle For The Quad ( NEW )
+const char* pVSFileName = "shader.vs";
+const char* pFSFileName = "shader.fs";
+
+//bool ReadFile(const char* fileName, string& outFile);
+
+GLfloat	rtri;				// Angle For The Triangle ( NEW )
+GLfloat	rquad;				// Angle For The Quad ( NEW )
 	
 GLuint VBO;						//Temp
 
@@ -47,21 +53,21 @@ Renderer::Renderer(RenderInput& input, int width, int height,
 	wglMakeCurrent(data->mWindowDC,data->mWindowRC); 
 	
 	ShowWindow(input.mWindowHandle,SW_SHOW);						// Show The Window
-	//SetForegroundWindow(input.mWindowHandle);						// Slightly Higher Priority
-	//SetFocus(input.mWindowHandle);								// Sets Keyboard Focus To The Window
+	SetForegroundWindow(input.mWindowHandle);						// Slightly Higher Priority
+	SetFocus(input.mWindowHandle);								// Sets Keyboard Focus To The Window
 
-	//glViewport(0,0,width,height);						// Reset The Current Viewport
+	glViewport(0,0,width,height);						// Reset The Current Viewport
 
-	//glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
-	//glLoadIdentity();									// Reset The Projection Matrix
+	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	glLoadIdentity();									// Reset The Projection Matrix
 
 	// Calculate The Aspect Ratio Of The Window
-	//gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+	gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
 
 	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
 	glLoadIdentity();									// Reset The Modelview Matrix
 
-	Renderer::InitGL();
+	InitGL();
 
 	
     Vector3f Vertices[3];
@@ -73,6 +79,8 @@ Renderer::Renderer(RenderInput& input, int width, int height,
  	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+
+	//CompileShaders();
 }
 
 
@@ -85,26 +93,103 @@ void Renderer::InitGL(GLvoid)							// All Setup For OpenGL Goes Here
 		assertion(false,"Rip");
 	}
 
-	//glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
+	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
-	//glClearDepth(1.0f);									// Depth Buffer Setup
-	//glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
-	//glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
-	//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
+	glClearDepth(1.0f);									// Depth Buffer Setup
+	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
+	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
 }
 
+/*
+
+void AddShader(GLuint ShaderProgram, const char* pShaderText, GLenum ShaderType)
+{
+    GLuint ShaderObj = glCreateShader(ShaderType);
+	
+    const GLchar* p[1];
+    GLint Lengths[1];
+
+    p[0] = pShaderText;
+    Lengths[0]= strlen(pShaderText);
+
+	glShaderSource(ShaderObj, 1, p, Lengths);
+
+    glCompileShader(ShaderObj);
+	
+	GLint success;
+	glGetShaderiv(ShaderObj, GL_COMPILE_STATUS, &success);
+	if (!success) {
+		GLchar InfoLog[1024];
+		glGetShaderInfoLog(ShaderObj, sizeof(InfoLog), NULL, InfoLog);
+		fprintf(stderr, "Error compiling shader type %d: '%s'\n", ShaderType, InfoLog);
+		exit(1);
+	}
+
+	glAttachShader(ShaderProgram, ShaderObj);
+}
+
+void Renderer::CompileShaders()
+{
+    ISHADEPROGRAM = glCreateProgram();
+	
+    if (ISHADEPROGRAM == 0) {
+        fprintf(stderr, "Error creating shader program\n");
+        exit(1);
+   }
+
+	//FileIO myFiles;
+
+	//myFiles.Open(pVSFileName,myFiles.READ);
+
+    string vs, fs;
+
+    if (!ReadFile(pVSFileName, vs)) {
+        exit(1);
+    };
+
+    if (!ReadFile(pFSFileName, fs)) {
+        exit(1);
+    };
+
+    AddShader(ISHADEPROGRAM, vs.c_str(), GL_VERTEX_SHADER);
+    AddShader(ISHADEPROGRAM, fs.c_str(), GL_FRAGMENT_SHADER);
+
+	glLinkProgram(ISHADEPROGRAM);
+	
+    GLint Success = 0;
+    GLchar ErrorLog[1024] = { 0 };
+
+	glGetProgramiv(ISHADEPROGRAM, GL_LINK_STATUS, &Success);
+	if (Success == 0) 
+	{
+		glGetProgramInfoLog(ISHADEPROGRAM, sizeof(ErrorLog), NULL, ErrorLog);
+		fprintf(stderr, "Error linking shader program: '%s'\n", ErrorLog);
+		exit(1);
+	}
+
+	glValidateProgram(ISHADEPROGRAM);
+    glGetProgramiv(ISHADEPROGRAM, GL_VALIDATE_STATUS, &Success);
+    if (!Success) {
+        glGetProgramInfoLog(ISHADEPROGRAM, sizeof(ErrorLog), NULL, ErrorLog);
+        fprintf(stderr, "Invalid shader program: '%s'\n", ErrorLog);
+        exit(1);
+    }
+
+    glUseProgram(ISHADEPROGRAM);
+}
+*/
 void Renderer::RenderScene(GLvoid)
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT);
 
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    //glEnableVertexAttribArray(0);
+    //glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    //glDrawArrays(GL_TRIANGLES, 0, 3);
 
-    glDisableVertexAttribArray(0);
-	/*
+    //glDisableVertexAttribArray(0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
 	glTranslatef(-1.5f,0.0f,-6.0f);						// Move Left 1.5 Units And Into The Screen 6.0
@@ -173,7 +258,7 @@ void Renderer::RenderScene(GLvoid)
 	glEnd();											// Done Drawing The Quad
 
 	rtri+=0.2f;											// Increase The Rotation Variable For The Triangle ( NEW )
-	rquad-=0.15f;										// Decrease The Rotation Variable For The Quad ( NEW )										// Done Drawing The Quad*/
+	rquad-=0.15f;										// Decrease The Rotation Variable For The Quad ( NEW )										// Done Drawing The Quad
 }
 
 /*
