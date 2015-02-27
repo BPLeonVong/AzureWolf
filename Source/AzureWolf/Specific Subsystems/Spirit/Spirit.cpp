@@ -1,7 +1,7 @@
 #include "AzureWolfStd.h"
 #include "Spirit.h"
 #include "SpiritProperty.h"
-
+/*
 Spirit::Spirit(SpiritID id)
 {
 	m_ID = id;
@@ -34,7 +34,7 @@ void Spirit::Update(int deltaMs)
 	{
 		it->second->VUpdate(deltaMs);
 	}
-}
+}*/
 
 /*
 std::string Spirit::toXML()
@@ -59,7 +59,7 @@ std::string Spirit::toXML()
 	return printer.CStr();
 }*/
 
-void Spirit::AddProperty(StrongSpiritPropertyPtr pProperty)
-{
-    std::pair<SpiritProperties::iterator, bool> success = m_Properties.insert(std::make_pair(pProperty->VGetId(), pProperty));
-}
+//void Spirit::AddProperty(StrongSpiritPropertyPtr pProperty)
+//{
+ //   std::pair<SpiritProperties::iterator, bool> success = m_Properties.insert(std::make_pair(pProperty->VGetId(), pProperty));
+//}

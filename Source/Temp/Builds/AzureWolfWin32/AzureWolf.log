@@ -1,13 +1,9 @@
-﻿Build started 2015-02-22 12:44:20 PM.
-     1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "..\Temp\Builds\AzureWolfWin32\AzureWolf.lastbuildstate".
-       InitializeBuildStatus:
-         Creating "..\Temp\Builds\AzureWolfWin32\AzureWolf.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
+﻿Build started 2015-02-26 10:42:15 PM.
+     1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
          AzureWolfStd.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\FileIO\AW_FileIO.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\FileIO\AW_FileIO.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
          SpiritFactory.cpp
          Spirit.cpp
          ResourceCache.cpp
@@ -27,7 +23,7 @@
          AzureWolf.cpp
          Generating Code...
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\Build\AzureWolfWin32\AzureWolfWin32D.lib" /NOLOGO ..\Temp\Builds\AzureWolfWin32\AzureWolfStd.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\Build\AzureWolfWin32\AzureWolfWin32D.lib" /NOLOGO ..\Temp\Builds\AzureWolfWin32\AzureWolfStd.obj
          ..\Temp\Builds\AzureWolfWin32\AzureWolf.obj
          ..\Temp\Builds\AzureWolfWin32\BaseGameLogic.obj
          ..\Temp\Builds\AzureWolfWin32\Initialization.obj
@@ -46,13 +42,8 @@
          ..\Temp\Builds\AzureWolfWin32\Spirit.obj
          ..\Temp\Builds\AzureWolfWin32\SpiritFactory.obj
          AzureWolf.vcxproj -> E:\Projects\AzureWolf\Source\AzureWolf\..\Build\AzureWolfWin32\AzureWolfWin32D.lib
-       CopyFilesToOutputDirectory:
-         Copying file from "..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" to "..\Build\AzureWolfWin32\AzureWolfWin32D.pdb".
-       FinalizeBuildStatus:
-         Deleting file "..\Temp\Builds\AzureWolfWin32\AzureWolf.unsuccessfulbuild".
-         Touching "..\Temp\Builds\AzureWolfWin32\AzureWolf.lastbuildstate".
-     1>Done Building Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" (rebuild target(s)).
+     1>Done Building Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.64
+Time Elapsed 00:00:01.73

@@ -11,9 +11,9 @@
 #include <crtdbg.h>
 
 //Check Version
-#define		_VS2010_
-#if			_MSC_VER < 1600
-	#undef	_VS2010_
+#define		_VS2012_
+#if			_MSC_VER < 1700
+	#undef	_VS2012_
 #endif
 
 #pragma warning( disable : 4996 )
@@ -40,14 +40,14 @@
 #define GLEW_STATIC 1
 
 //Include OpenGl
-#include <GL/glew.h>
+#include "glew.h"
 #include <gl/glu.h>
 
 
-using std::tr1::shared_ptr;
-using std::tr1::weak_ptr;
-using std::tr1::static_pointer_cast;
-using std::tr1::dynamic_pointer_cast;
+//using std::shared_ptr<int> p1;
+//using std:::weak_ptr;
+//using std::static_pointer_cast;
+//using std::tr1::dynamic_pointer_cast;
 
 //Don't Copy Base Class
 class DCTOR_UNCOPY

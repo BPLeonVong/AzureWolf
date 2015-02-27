@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 class SpiritFactory
 {
 	SpiritID m_LastSpiritID;
@@ -13,4 +13,4 @@ public:
 
 private:
 	SpiritID GetNextSpiritID(void){++m_LastSpiritID; return m_LastSpiritID;}
-};
+};*/

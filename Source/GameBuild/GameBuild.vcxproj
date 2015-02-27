@@ -24,17 +24,20 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -54,8 +57,8 @@
     <OutDir>..\Build\$(ProjectName)$(PlatformName)\</OutDir>
     <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
     <TargetName>$(ProjectName)$(PlatformName)$(ConfigurationType)</TargetName>
-    <IncludePath>$(SolutionDir)\Source\Build\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp--2.0.863-sdk;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Build\AzureWolfWin32;E:\Projects\AzureWolf\Source\3rd_Party\glew-1.11.0\lib\Release\Win32</LibraryPath>
+    <IncludePath>$(SolutionDir)\Source\Build\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp--2.0.863-sdk;$(SolutionDir)\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Build\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\glew-1.11.0\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <LinkIncremental>true</LinkIncremental>

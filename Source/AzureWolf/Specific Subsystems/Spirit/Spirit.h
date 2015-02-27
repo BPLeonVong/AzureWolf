@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 class TiXmlElement;
 typedef std::string SpiritType;
 
@@ -71,4 +71,4 @@ public:
 	const SpiritProperties* GetProperties() { return &m_Properties; }
 
     void AddProperty(StrongSpiritPropertyPtr pComponent);
-};
+};*/

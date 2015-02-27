@@ -1,7 +1,7 @@
 #pragma once
 
 //include string class
-
+/*
 class TiXmlElement;
 
 class SpiritProperty
@@ -31,4 +31,4 @@ public:
 private:
 	void SetOwner(StrongSpiritPtr pOwner){m_pOwner = pOwner;}
 
-};
+};*/
