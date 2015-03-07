@@ -1,5 +1,12 @@
 #pragma once
 
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+bool fRead(const char* pFileName, string& outFile);
+
 namespace AW
 {
 	class FileIO
@@ -27,13 +34,13 @@ namespace AW
 		FileIO(const std::string& fileName,int mode);
 		~FileIO();
 
-		bool LoadFileRaw(std::string& fileName, char** data, unsigned int* size);
+		//bool LoadFileRaw(std::string& fileName, char** data, unsigned int* size);
 
-		bool Open(const std::string& fileName, int mode);
-		bool Close();
+		//bool Open(const std::string& fileName, int mode);
+		//bool Close();
 	
 
-		operator bool () const;
+		//operator bool () const;
 
 	private:
 		FILE* mFile;

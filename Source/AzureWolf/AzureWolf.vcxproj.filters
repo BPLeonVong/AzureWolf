@@ -166,6 +166,15 @@
     <ClInclude Include="Core Systems\Utilities\math_3d.h">
       <Filter>CoreSystems\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\DataTypes\AWMatrix4.h">
+      <Filter>CoreSystems\Utilities\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\pipeline.h">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\camera.h">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AzureWolfStd.cpp" />
@@ -220,6 +229,15 @@
     <ClCompile Include="Core Systems\FileIO\AW_FileIO.cpp">
       <Filter>CoreSystems\FileIO</Filter>
     </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\pipeline.cpp">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\math_3d.cpp">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\camera.cpp">
+      <Filter>CoreSystems\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Audio\About.txt">
@@ -256,11 +274,20 @@
     <None Include="Core Systems\FileIO\AW_FileIO.inl">
       <Filter>CoreSystems\FileIO</Filter>
     </None>
-    <None Include="Renderer\AWGLRenderer\shader.vs">
+    <None Include="Renderer\Shader\shader.fs">
       <Filter>Renderer\Shader</Filter>
     </None>
-    <None Include="Renderer\AWGLRenderer\shader.fs">
+    <None Include="Renderer\Shader\shader.vs">
       <Filter>Renderer\Shader</Filter>
+    </None>
+    <None Include="Core Systems\Utilities\AWTable.inl">
+      <Filter>CoreSystems\Utilities</Filter>
+    </None>
+    <None Include="Core Systems\Utilities\DataTypes\AWMatrix4.inl">
+      <Filter>CoreSystems\Utilities\DataTypes</Filter>
+    </None>
+    <None Include="Renderer\AWGLRenderer\AW_Renderer.inl">
+      <Filter>Renderer\AWGLRenderer</Filter>
     </None>
   </ItemGroup>
 </Project>

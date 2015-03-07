@@ -25,6 +25,37 @@ FileIO::~FileIO()
 	}
 }
 
+bool fRead(const char* pFileName, string& outFile)
+{
+    ifstream f(pFileName);
+    
+    bool ret = false;
+    /*
+	ofstream out("filename.txt");
+	out<<"Line 1:Hello World\n"
+		<<"Line 2:Hello World\n"
+		<<"Line 3:Hello World\n"<<endl;
+		out.close();*/
+
+    if (f.is_open()) {
+        string line;
+        while (getline(f, line)) {
+            outFile.append(line);
+            outFile.append("\n");
+        }
+        
+        f.close();
+        
+        ret = true;
+    }
+    else {
+		assertion(true,"Error");
+    }
+    
+    return ret;
+}
+
+/*
 bool FileIO::Open(const std::string& filename, int mode)
 {
 	if (mMode == NONE)
@@ -71,7 +102,7 @@ bool FileIO::Close ()
 FileIO::operator bool () const
 {
     return mMode != NONE;
-}
+}*/
 
 /*
 bool FileIO::LoadFileRaw(std::string& fileName, char** data, unsigned int* size)

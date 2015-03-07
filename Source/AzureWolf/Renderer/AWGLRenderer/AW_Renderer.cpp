@@ -3,20 +3,24 @@
 #include "AW_Renderer.h"
 #include "AW_GLRenderData.h"
 #include "../../Core Systems/Utilities/math_3d.h"
+#include "../../Core Systems/Utilities/pipeline.h"
+#include "../../Core Systems/Utilities/camera.h"
 #include "../../Core Systems/FileIO/AW_FileIO.h"
+
 
 using namespace AW;
 using namespace std;
 
-const char* pVSFileName = "shader.vs";
-const char* pFSFileName = "shader.fs";
+const char* pVSFileName = "../AzureWolf/Renderer/Shader/shader.vs";
+const char* pFSFileName = "../AzureWolf/Renderer/Shader/shader.fs";
 
-//bool ReadFile(const char* fileName, string& outFile);
-
-GLfloat	rtri;				// Angle For The Triangle ( NEW )
-GLfloat	rquad;				// Angle For The Quad ( NEW )
+//GLfloat	rtri;				// Angle For The Triangle ( NEW )
+//GLfloat	rquad;				// Angle For The Quad ( NEW )
 	
 GLuint VBO;						//Temp
+GLuint IBO;
+
+GLuint gScaleLocation;
 
 Renderer::Renderer(RenderInput& input, int width, int height,
         int numMultisamples)
@@ -56,31 +60,41 @@ Renderer::Renderer(RenderInput& input, int width, int height,
 	SetForegroundWindow(input.mWindowHandle);						// Slightly Higher Priority
 	SetFocus(input.mWindowHandle);								// Sets Keyboard Focus To The Window
 
-	glViewport(0,0,width,height);						// Reset The Current Viewport
+	//glViewport(0,0,width,height);						// Reset The Current Viewport
 
-	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
-	glLoadIdentity();									// Reset The Projection Matrix
+	//glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	//glLoadIdentity();									// Reset The Projection Matrix
 
 	// Calculate The Aspect Ratio Of The Window
-	gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+	//gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
 
-	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
-	glLoadIdentity();									// Reset The Modelview Matrix
+	//glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+	//glLoadIdentity();									// Reset The Modelview Matrix
 
 	InitGL();
 
 	
-    Vector3f Vertices[3];
-
-	Vertices[0] = Vector3f(-1.0f, -1.0f, 0.0f);
-	Vertices[1] = Vector3f(1.0f, -1.0f, 0.0f);
-	Vertices[2] = Vector3f(0.0f, 1.0f, 0.0f);
+    Vector3f Vertices[4];
+    Vertices[0] = Vector3f(-1.0f, -1.0f, 0.0f);
+    Vertices[1] = Vector3f(0.0f, -1.0f, 1.0f);
+    Vertices[2] = Vector3f(1.0f, -1.0f, 0.0f);
+    Vertices[3] = Vector3f(0.0f, 1.0f, 0.0f);
     
  	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 
-	//CompileShaders();
+	
+    unsigned int Indices[] = { 0, 3, 1,
+                               1, 3, 2,
+                               2, 3, 0,
+                               0, 1, 2 };
+
+    glGenBuffers(1, &IBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+	
+	CompileShaders();
 }
 
 
@@ -101,7 +115,7 @@ void Renderer::InitGL(GLvoid)							// All Setup For OpenGL Goes Here
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
 }
 
-/*
+
 
 void AddShader(GLuint ShaderProgram, const char* pShaderText, GLenum ShaderType)
 {
@@ -117,9 +131,9 @@ void AddShader(GLuint ShaderProgram, const char* pShaderText, GLenum ShaderType)
 
     glCompileShader(ShaderObj);
 	
-	GLint success;
+	GLint success = 0;
 	glGetShaderiv(ShaderObj, GL_COMPILE_STATUS, &success);
-	if (!success) {
+	if (success == GL_FALSE) {
 		GLchar InfoLog[1024];
 		glGetShaderInfoLog(ShaderObj, sizeof(InfoLog), NULL, InfoLog);
 		fprintf(stderr, "Error compiling shader type %d: '%s'\n", ShaderType, InfoLog);
@@ -128,6 +142,7 @@ void AddShader(GLuint ShaderProgram, const char* pShaderText, GLenum ShaderType)
 
 	glAttachShader(ShaderProgram, ShaderObj);
 }
+
 
 void Renderer::CompileShaders()
 {
@@ -138,23 +153,20 @@ void Renderer::CompileShaders()
         exit(1);
    }
 
-	//FileIO myFiles;
-
-	//myFiles.Open(pVSFileName,myFiles.READ);
 
     string vs, fs;
-
-    if (!ReadFile(pVSFileName, vs)) {
+	
+    if (!fRead(pVSFileName, vs)) {
         exit(1);
     };
 
-    if (!ReadFile(pFSFileName, fs)) {
+    if (!fRead(pFSFileName, fs)) {
         exit(1);
     };
-
     AddShader(ISHADEPROGRAM, vs.c_str(), GL_VERTEX_SHADER);
     AddShader(ISHADEPROGRAM, fs.c_str(), GL_FRAGMENT_SHADER);
-
+	
+	
 	glLinkProgram(ISHADEPROGRAM);
 	
     GLint Success = 0;
@@ -176,20 +188,48 @@ void Renderer::CompileShaders()
         exit(1);
     }
 
+	gScaleLocation = glGetUniformLocation(ISHADEPROGRAM, "gScale");
     glUseProgram(ISHADEPROGRAM);
 }
-*/
+/*
+static void SpecialKeyboardCB(int Key, int x, int y)
+{
+    GameCamera.OnKeyboard(Key);
+}*/
+
 void Renderer::RenderScene(GLvoid)
 {
-	//glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
+	
+    static float Scale = 0.0f;
+	
+    Scale += 0.1f;
+	
+    Pipeline p;
+    p.Rotate(0.0f, Scale, 0.0f);
+    p.WorldPos(0.0f, 0.0f, 3.0f);
+    Vector3f CameraPos(0.0f, 0.0f, -3.0f);
+    Vector3f CameraTarget(0.0f, 0.0f, 2.0f);
+    Vector3f CameraUp(0.0f, 1.0f, 0.0f);
+    p.SetCamera(CameraPos, CameraTarget, CameraUp);
 
-    //glEnableVertexAttribArray(0);
-    //glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	//p.SetCamera(GameCamera.GetPos(), GameCamera.GetTarget(), GameCamera.GetUp());
+    
+    p.SetPerspectiveProj(30.0f, 800, 600, 1.0f, 100.0f);
 
-    //glDrawArrays(GL_TRIANGLES, 0, 3);
+    glUniformMatrix4fv(gScaleLocation, 1, GL_TRUE, (const GLfloat*)p.GetTrans());
 
-    //glDisableVertexAttribArray(0);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+
+    glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+
+    glDisableVertexAttribArray(0);
+	
+
+	/*
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
 	glTranslatef(-1.5f,0.0f,-6.0f);						// Move Left 1.5 Units And Into The Screen 6.0
@@ -258,14 +298,13 @@ void Renderer::RenderScene(GLvoid)
 	glEnd();											// Done Drawing The Quad
 
 	rtri+=0.2f;											// Increase The Rotation Variable For The Triangle ( NEW )
-	rquad-=0.15f;										// Decrease The Rotation Variable For The Quad ( NEW )										// Done Drawing The Quad
+	rquad-=0.15f;										// Decrease The Rotation Variable For The Quad ( NEW )										// Done Drawing The Quad*/
 }
 
-/*
 Renderer::~Renderer ()
 {
 }
-
+/*
 inline void Renderer::SetClearColor(const Float4& clearColor)
 {
 }*/

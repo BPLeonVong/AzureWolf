@@ -1,10 +1,16 @@
 #include "AzureWolfStd.h"
 #include "AW_WindowApplication.h"
 
+#include "../Utilities/camera.h"
+
 using namespace std;
 using namespace AW;
 
 const int WindowApplication::KEY_ESCAPE = VK_ESCAPE;
+const int WindowApplication::KEY_LEFT_ARROW = VK_LEFT;
+const int WindowApplication::KEY_DOWN_ARROW = VK_DOWN;
+const int WindowApplication::KEY_RIGHT_ARROW = VK_RIGHT;
+const int WindowApplication::KEY_UP_ARROW = VK_UP;
 
 static bool gsIgnoreWindowDestroy = false;
 
@@ -21,17 +27,10 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
 	
 	switch(message)
 	{        
-	case WM_CHAR:
+	case WM_KEYDOWN:
         {
             unsigned char key = (unsigned char)(char)wParam;
-
-            // Quit the application if the KEY_TERMINATE key is pressed.
-            if (key == theApp->KEY_TERMINATE)
-            {
-                PostQuitMessage(0);
-                return 0;
-            }
-
+			
             // Get the cursor position in client coordinates.
             POINT point;
             GetCursorPos(&point);
@@ -39,9 +38,53 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
             int xPos = (int)point.x;
             int yPos = (int)point.y;
 
-            theApp->OnKeyDown(key, xPos, yPos);
+            // Quit the application if the KEY_TERMINATE key is pressed.
+            if (key == theApp->KEY_TERMINATE)
+            {
+                PostQuitMessage(0);
+                return 0;
+            }
+			else if (key==theApp->KEY_LEFT_ARROW ||
+				     key==theApp->KEY_DOWN_ARROW ||
+					 key==theApp->KEY_RIGHT_ARROW ||
+					 key==theApp->KEY_UP_ARROW)
+			{
+				theApp->OnSpecialKeyDown(key,xPos,yPos);
+			}
+
+
+            //theApp->OnKeyDown(key, xPos, yPos);
             return 0;
         }
+	case WM_KEYUP:
+		{
+			  unsigned char key = (unsigned char)(char)wParam;
+			
+            // Get the cursor position in client coordinates.
+            POINT point;
+            GetCursorPos(&point);
+            ScreenToClient(handle, &point);
+            int xPos = (int)point.x;
+            int yPos = (int)point.y;
+
+            // Quit the application if the KEY_TERMINATE key is pressed.
+            if (key == theApp->KEY_TERMINATE)
+            {
+                PostQuitMessage(0);
+                return 0;
+            }
+			else if (key==theApp->KEY_LEFT_ARROW ||
+				     key==theApp->KEY_DOWN_ARROW ||
+					 key==theApp->KEY_RIGHT_ARROW ||
+					 key==theApp->KEY_UP_ARROW)
+			{
+				theApp->OnSpecialKeyUp(key,xPos,yPos);
+			}
+
+
+            //theApp->OnKeyUp(key, xPos, yPos);
+			return 0;
+		}
 	case WM_DESTROY:
         {
             // The DestroyWindow call when recreating the window for

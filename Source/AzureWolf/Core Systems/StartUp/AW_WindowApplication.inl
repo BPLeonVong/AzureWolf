@@ -68,7 +68,7 @@ inline bool WindowApplication::OnKeyUp (unsigned char, int, int)
 {
     return false;
 }
-
+/*
 inline bool WindowApplication::OnSpecialKeyDown (int, int, int)
 {
     return false;
@@ -77,7 +77,7 @@ inline bool WindowApplication::OnSpecialKeyDown (int, int, int)
 inline bool WindowApplication::OnSpecialKeyUp (int, int, int)
 {
     return false;
-}
+}*/
 
 inline bool WindowApplication::OnMouseClick (int, int, int, int,
     unsigned int)

@@ -30,8 +30,11 @@
     <ClInclude Include="Core Systems\Time\AWTime.h" />
     <ClInclude Include="Core Systems\Utilities\AWInit.h" />
     <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h" />
+    <ClInclude Include="Core Systems\Utilities\camera.h" />
     <ClInclude Include="Core Systems\Utilities\DataTypes\AWFloat4.h" />
+    <ClInclude Include="Core Systems\Utilities\DataTypes\AWMatrix4.h" />
     <ClInclude Include="Core Systems\Utilities\math_3d.h" />
+    <ClInclude Include="Core Systems\Utilities\pipeline.h" />
     <ClInclude Include="Core Systems\Utilities\templates.h" />
     <ClInclude Include="Core Systems\Utilities\types.h" />
     <ClInclude Include="Renderer\AWGLRenderer\AW_GLRenderData.h" />
@@ -67,6 +70,9 @@
     <ClCompile Include="Core Systems\StartUp\AW_WindowApplicationMain.cpp" />
     <ClCompile Include="Core Systems\Time\AWTime.cpp" />
     <ClCompile Include="Core Systems\Utilities\AWInit.cpp" />
+    <ClCompile Include="Core Systems\Utilities\camera.cpp" />
+    <ClCompile Include="Core Systems\Utilities\math_3d.cpp" />
+    <ClCompile Include="Core Systems\Utilities\pipeline.cpp" />
     <ClCompile Include="Renderer\AWGLRenderer\AW_Renderer.cpp" />
     <ClCompile Include="Renderer\Graphics3D\geometry.cpp" />
     <ClCompile Include="Renderer\Graphics3D\SceneNode.cpp" />
@@ -82,11 +88,14 @@
     <None Include="Core Systems\FileIO\AW_FileIO.inl" />
     <None Include="Core Systems\Memory\AW_Memory.inl" />
     <None Include="Core Systems\StartUp\AW_WindowApplication.inl" />
+    <None Include="Core Systems\Utilities\AWTable.inl" />
     <None Include="Core Systems\Utilities\AWTuple.inl" />
     <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl" />
+    <None Include="Core Systems\Utilities\DataTypes\AWMatrix4.inl" />
     <None Include="Renderer\About.txt" />
-    <None Include="Renderer\AWGLRenderer\shader.fs" />
-    <None Include="Renderer\AWGLRenderer\shader.vs" />
+    <None Include="Renderer\AWGLRenderer\AW_Renderer.inl" />
+    <None Include="Renderer\Shader\shader.fs" />
+    <None Include="Renderer\Shader\shader.vs" />
     <None Include="Resource Cache\About.txt" />
     <None Include="Specific Subsystems\About.txt" />
   </ItemGroup>
@@ -161,7 +170,7 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;AW_LITTLE_ENDIAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;AW_LITTLE_ENDIAN;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>AzureWolfStd.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>

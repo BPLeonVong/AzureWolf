@@ -1,15 +1,20 @@
-﻿Build started 2015-02-26 10:42:15 PM.
+﻿Build started 2015-03-07 1:31:16 PM.
      1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
          AzureWolfStd.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\FileIO\AW_FileIO.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
+     1>e:\projects\azurewolf\source\azurewolf\core systems\utilities\math_3d.h(24): warning C4005: '_USE_MATH_DEFINES' : macro redefinition
+                 command-line arguments :  see previous definition of '_USE_MATH_DEFINES'
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\FileIO\AW_FileIO.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" "Core Systems\Utilities\camera.cpp" "Core Systems\Utilities\math_3d.cpp" "Core Systems\Utilities\pipeline.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
          SpiritFactory.cpp
          Spirit.cpp
          ResourceCache.cpp
          SceneNode.cpp
          geometry.cpp
          AW_Renderer.cpp
+         pipeline.cpp
+         math_3d.cpp
+         camera.cpp
          AWInit.cpp
          AWTime.cpp
          AW_WindowApplicationMain.cpp
@@ -35,6 +40,9 @@
          ..\Temp\Builds\AzureWolfWin32\AW_WindowApplicationMain.obj
          ..\Temp\Builds\AzureWolfWin32\AWTime.obj
          ..\Temp\Builds\AzureWolfWin32\AWInit.obj
+         ..\Temp\Builds\AzureWolfWin32\camera.obj
+         ..\Temp\Builds\AzureWolfWin32\math_3d.obj
+         ..\Temp\Builds\AzureWolfWin32\pipeline.obj
          ..\Temp\Builds\AzureWolfWin32\AW_Renderer.obj
          ..\Temp\Builds\AzureWolfWin32\geometry.obj
          ..\Temp\Builds\AzureWolfWin32\SceneNode.obj
@@ -46,4 +54,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.73
+Time Elapsed 00:00:01.93

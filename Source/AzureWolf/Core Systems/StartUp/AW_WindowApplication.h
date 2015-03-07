@@ -2,6 +2,7 @@
 
 #include "AW_Application.h"
 #include "../Utilities/AWInit.h"
+#include "../Utilities/camera.h"
 
 namespace AW
 {
@@ -139,6 +140,20 @@ protected:
 
     double mLastTime, mAccumulatedTime, mFrameRate;
     int mFrameCount, mAccumulatedFrameCount, mTimer, mMaxTimer;
+
+	//Key Presses temp here
+	bool mUArrowPressed;
+	bool mRArrowPressed;
+	bool mDArrowPressed;
+	bool mLArrowPressed;
+
+	//Camera moving temp
+	Camera *mCamera;
+	virtual bool MoveCamera();
+    virtual void MoveForward();
+    virtual void MoveBackward();
+    virtual void MoveLeft();
+    virtual void MoveRight();
 };
 
 #include "AW_WindowApplication.inl"

@@ -1,6 +1,7 @@
 #include "AzureWolfStd.h"
 #include "AW_WindowApplication.h"
 
+
 using namespace AW;
 
 WindowApplication::WindowApplication (const char* windowTitle, int xPosition,
@@ -47,6 +48,8 @@ bool WindowApplication::OnInitialize ()
 {
 	//This is called in the AW_WindowApplicationMain after window is created
 //    mRenderer->SetClearColor(mClearColor);
+	mCamera = new0 Camera();
+	mRenderer->SetCamera(mCamera);
     return true;
 }
 
@@ -140,3 +143,95 @@ void WindowApplication::DrawFrameRate (int x, int y, const Float4& color)
 //    mRenderer->Draw(x, y, color, message);
 }
 
+bool WindowApplication::OnSpecialKeyDown(int key,int,int)
+{
+	if (key == KEY_UP_ARROW)
+	{
+		mUArrowPressed = true;
+		return true;
+	}
+	if (key == KEY_RIGHT_ARROW)
+	{
+		mRArrowPressed = true;
+		return true;
+	}
+	if (key == KEY_DOWN_ARROW)
+	{
+		mDArrowPressed = true;
+		return true;
+	}
+	if (key == KEY_LEFT_ARROW)
+	{
+		mLArrowPressed = true;
+		return true;
+	}
+	return false;
+}
+
+bool WindowApplication::OnSpecialKeyUp(int key,int,int)
+{
+	if (key == KEY_UP_ARROW)
+	{
+		mUArrowPressed = false;
+		return true;
+	}
+	if (key == KEY_RIGHT_ARROW)
+	{
+		mRArrowPressed = false;
+		return true;
+	}
+	if (key == KEY_DOWN_ARROW)
+	{
+		mDArrowPressed = false;
+		return true;
+	}
+	if (key == KEY_LEFT_ARROW)
+	{
+		mLArrowPressed = false;
+		return true;
+	}
+	return false;
+}
+
+bool WindowApplication::MoveCamera()
+{
+	bool bCameraMove=false;
+	if (mUArrowPressed)
+	{
+		MoveForward();
+		bCameraMove = true;
+	}
+	if (mRArrowPressed)
+	{
+		MoveRight();
+		bCameraMove = true;
+	}
+	if (mDArrowPressed)
+	{
+		MoveBackward();
+		bCameraMove = true;
+	}
+	if (mLArrowPressed)
+	{
+		MoveLeft();
+		bCameraMove = true;
+	}
+	return bCameraMove;
+}
+
+void WindowApplication::MoveForward()
+{
+
+}
+void WindowApplication::MoveRight()
+{
+
+}
+void WindowApplication::MoveBackward()
+{
+
+}
+void WindowApplication::MoveLeft()
+{
+
+}

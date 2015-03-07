@@ -27,6 +27,10 @@ void GameBuildStd::OnTerminate()
 
 void GameBuildStd::OnIdle()
 {
+	if (MoveCamera())
+	{
+
+	}
 }
 
 bool GameBuildStd::OnKeyDown(unsigned char key, int x, int y)
