@@ -1,11 +1,21 @@
-﻿Build started 2015-02-27 3:17:32 PM.
-     1>Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Build\GameBuildWin32\GameBuildWin32Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\Projects\AzureWolf\Source\GameBuild\\..\Lib\AzureWolfWin32 AzureWolfWin32D.lib opengl32.lib glew32s.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Build\GameBuildWin32\GameBuildWin32Application.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Build\GameBuildWin32\GameBuildWin32Application.lib" /MACHINE:X86 ..\Temp\Builds\GameBuildWin32\GameBuildStd.obj
+﻿Build started 2015-03-23 1:15:28 PM.
+     1>Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" on node 2 (Rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\".
+       InitializeBuildStatus:
+         Creating "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\Projects\AzureWolf\\Source\Build\AzureWolfWin32 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"GameBuildStd.h" /Fp"..\Temp\Builds\GameBuildWin32\GameBuildWin32Application.pch" /Fo"..\Temp\Builds\GameBuildWin32\\" /Fd"..\Build\GameBuildWin32\GameBuildWin32Application.pdb" /Gd /TP /analyze- /errorReport:prompt Application\GameBuildStd.cpp
+         GameBuildStd.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Build\GameBuildWin32\GameBuildWin32Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\Projects\AzureWolf\Source\GameBuild\\..\Lib\AzureWolfWin32 AzureWolfWin32D.lib opengl32.lib glew32s.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Build\GameBuildWin32\GameBuildWin32Application.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Build\GameBuildWin32\GameBuildWin32Application.lib" /MACHINE:X86 ..\Temp\Builds\GameBuildWin32\GameBuildStd.obj
      1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'E:\Projects\AzureWolf\Source\Build\GameBuildWin32\vc120.pdb'; linking object as if no debug info
          GameBuild.vcxproj -> E:\Projects\AzureWolf\Source\GameBuild\..\Build\GameBuildWin32\GameBuildWin32Application.exe
-     1>Done Building Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" (Build target(s)).
+       FinalizeBuildStatus:
+         Deleting file "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\unsuccessfulbuild".
+         Touching "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\GameBuild.lastbuildstate".
+     1>Done Building Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.49
+Time Elapsed 00:00:01.06

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
       <Configuration>DebugDLL</Configuration>
@@ -31,6 +31,9 @@
     <ClInclude Include="Core Systems\Utilities\AWInit.h" />
     <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h" />
     <ClInclude Include="Core Systems\Utilities\camera.h" />
+    <ClInclude Include="Core Systems\Utilities\CPractices\BST.h" />
+    <ClInclude Include="Core Systems\Utilities\CPractices\LinkedList.h" />
+    <ClInclude Include="Core Systems\Utilities\CPractices\Recursion.h" />
     <ClInclude Include="Core Systems\Utilities\DataTypes\AWFloat4.h" />
     <ClInclude Include="Core Systems\Utilities\DataTypes\AWMatrix4.h" />
     <ClInclude Include="Core Systems\Utilities\math_3d.h" />
@@ -44,7 +47,7 @@
     <ClInclude Include="Renderer\Graphics3D\SceneNode.h" />
     <ClInclude Include="Renderer\OpenGLRenderer\AWOpenGLRendererData.h" />
     <ClInclude Include="Renderer\RenderDevice\RenderInput.h" />
-    <ClInclude Include="Renderer\Resources\AWTexture.h" />
+    <ClInclude Include="Renderer\Resources\AW_Texture.h" />
     <ClInclude Include="Renderer\User Interface\UserInterface.h" />
     <ClInclude Include="Resource Cache\ResourceCache.h" />
     <ClInclude Include="Specific Subsystems\Spirit\Spirit.h" />
@@ -71,11 +74,15 @@
     <ClCompile Include="Core Systems\Time\AWTime.cpp" />
     <ClCompile Include="Core Systems\Utilities\AWInit.cpp" />
     <ClCompile Include="Core Systems\Utilities\camera.cpp" />
+    <ClCompile Include="Core Systems\Utilities\CPractices\BST.cpp" />
+    <ClCompile Include="Core Systems\Utilities\CPractices\LinkedList.cpp" />
+    <ClCompile Include="Core Systems\Utilities\CPractices\Recursion.cpp" />
     <ClCompile Include="Core Systems\Utilities\math_3d.cpp" />
     <ClCompile Include="Core Systems\Utilities\pipeline.cpp" />
     <ClCompile Include="Renderer\AWGLRenderer\AW_Renderer.cpp" />
     <ClCompile Include="Renderer\Graphics3D\geometry.cpp" />
     <ClCompile Include="Renderer\Graphics3D\SceneNode.cpp" />
+    <ClCompile Include="Renderer\Resources\AW_Texture.cpp" />
     <ClCompile Include="Resource Cache\ResourceCache.cpp" />
     <ClCompile Include="Specific Subsystems\Spirit\Spirit.cpp" />
     <ClCompile Include="Specific Subsystems\Spirit\SpiritFactory.cpp" />
@@ -110,21 +117,21 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>NotSet</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">

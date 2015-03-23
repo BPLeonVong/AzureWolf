@@ -24,6 +24,10 @@ WindowApplication::WindowApplication (const char* windowTitle, int xPosition,
     mTimer(30),
     mMaxTimer(30)
 {
+	 mUArrowPressed = false;
+	 mRArrowPressed = false;
+	 mDArrowPressed = false;
+	 mLArrowPressed = false;
     //ThePath = WM5Path + std::string(windowTitle) + "/";
 
     // NOTE.  The derived-class constructors may override these settings.
@@ -221,17 +225,17 @@ bool WindowApplication::MoveCamera()
 
 void WindowApplication::MoveForward()
 {
-
+	mCamera->MoveUp();
 }
 void WindowApplication::MoveRight()
 {
-
+	mCamera->MoveRight();
 }
 void WindowApplication::MoveBackward()
 {
-
+	mCamera->MoveDown();
 }
 void WindowApplication::MoveLeft()
 {
-
+	mCamera->MoveLeft();
 }

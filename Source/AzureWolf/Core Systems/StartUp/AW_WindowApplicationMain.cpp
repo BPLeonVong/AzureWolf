@@ -3,6 +3,10 @@
 
 #include "../Utilities/camera.h"
 
+#include "../../Core Systems/Utilities/CPractices/LinkedList.h"
+#include "../../Core Systems/Utilities/CPractices/BST.h"
+#include "../../Core Systems/Utilities/CPractices/Recursion.h"
+
 using namespace std;
 using namespace AW;
 
@@ -110,6 +114,14 @@ int WindowApplication::Main(int, char**)
 
 	//Sets the Escape Key to Terminate Variable
 	theApp->KEY_TERMINATE = WindowApplication::KEY_ESCAPE;
+
+	//Testing C++ practices in console
+	PLinkedList pLLTemp;
+	PBST pBSTTemp;
+	PRecursion pRTemp;
+	pLLTemp.Display();
+	pBSTTemp.Display();
+	pRTemp.Display();
 
 	//Check if the application was created
 	if(!theApp->OnPrecreate())

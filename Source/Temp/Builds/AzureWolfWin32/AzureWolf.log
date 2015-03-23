@@ -1,19 +1,25 @@
-﻿Build started 2015-03-07 1:31:16 PM.
+﻿Build started 2015-03-23 1:41:53 PM.
      1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (Rebuild target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
+     1>_PrepareForClean:
+         Deleting file "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\AzureWolf.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
          AzureWolfStd.cpp
-     1>e:\projects\azurewolf\source\azurewolf\core systems\utilities\math_3d.h(24): warning C4005: '_USE_MATH_DEFINES' : macro redefinition
-                 command-line arguments :  see previous definition of '_USE_MATH_DEFINES'
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\FileIO\AW_FileIO.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" "Core Systems\Utilities\camera.cpp" "Core Systems\Utilities\math_3d.cpp" "Core Systems\Utilities\pipeline.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolf\AzureWolf.cpp AzureWolf\BaseGameLogic.cpp "Basic Foundations\Main Loop\Initialization.cpp" "Core Systems\Debugging\Logger.cpp" "Core Systems\FileIO\AW_FileIO.cpp" "Core Systems\StartUp\AW_Application.cpp" "Core Systems\StartUp\AW_Command.cpp" "Core Systems\StartUp\AW_WindowApplication.cpp" "Core Systems\StartUp\AW_WindowApplicationMain.cpp" "Core Systems\Time\AWTime.cpp" "Core Systems\Utilities\AWInit.cpp" "Core Systems\Utilities\camera.cpp" "Core Systems\Utilities\CPractices\BST.cpp" "Core Systems\Utilities\CPractices\LinkedList.cpp" "Core Systems\Utilities\CPractices\Recursion.cpp" "Core Systems\Utilities\math_3d.cpp" "Core Systems\Utilities\pipeline.cpp" Renderer\AWGLRenderer\AW_Renderer.cpp Renderer\Graphics3D\geometry.cpp Renderer\Graphics3D\SceneNode.cpp Renderer\Resources\AW_Texture.cpp "Resource Cache\ResourceCache.cpp" "Specific Subsystems\Spirit\Spirit.cpp" "Specific Subsystems\Spirit\SpiritFactory.cpp"
          SpiritFactory.cpp
          Spirit.cpp
          ResourceCache.cpp
+         AW_Texture.cpp
          SceneNode.cpp
          geometry.cpp
          AW_Renderer.cpp
          pipeline.cpp
          math_3d.cpp
+         Recursion.cpp
+         LinkedList.cpp
+         BST.cpp
          camera.cpp
          AWInit.cpp
          AWTime.cpp
@@ -22,13 +28,15 @@
          AW_Command.cpp
          AW_Application.cpp
          AW_FileIO.cpp
+         Generating Code...
+         Compiling...
          Logger.cpp
          Initialization.cpp
          BaseGameLogic.cpp
          AzureWolf.cpp
          Generating Code...
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\Build\AzureWolfWin32\AzureWolfWin32D.lib" /NOLOGO ..\Temp\Builds\AzureWolfWin32\AzureWolfStd.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"..\Build\AzureWolfWin32\AzureWolfWin32D.lib" /NOLOGO ..\Temp\Builds\AzureWolfWin32\AzureWolfStd.obj
          ..\Temp\Builds\AzureWolfWin32\AzureWolf.obj
          ..\Temp\Builds\AzureWolfWin32\BaseGameLogic.obj
          ..\Temp\Builds\AzureWolfWin32\Initialization.obj
@@ -41,17 +49,26 @@
          ..\Temp\Builds\AzureWolfWin32\AWTime.obj
          ..\Temp\Builds\AzureWolfWin32\AWInit.obj
          ..\Temp\Builds\AzureWolfWin32\camera.obj
+         ..\Temp\Builds\AzureWolfWin32\BST.obj
+         ..\Temp\Builds\AzureWolfWin32\LinkedList.obj
+         ..\Temp\Builds\AzureWolfWin32\Recursion.obj
          ..\Temp\Builds\AzureWolfWin32\math_3d.obj
          ..\Temp\Builds\AzureWolfWin32\pipeline.obj
          ..\Temp\Builds\AzureWolfWin32\AW_Renderer.obj
          ..\Temp\Builds\AzureWolfWin32\geometry.obj
          ..\Temp\Builds\AzureWolfWin32\SceneNode.obj
+         ..\Temp\Builds\AzureWolfWin32\AW_Texture.obj
          ..\Temp\Builds\AzureWolfWin32\ResourceCache.obj
          ..\Temp\Builds\AzureWolfWin32\Spirit.obj
          ..\Temp\Builds\AzureWolfWin32\SpiritFactory.obj
          AzureWolf.vcxproj -> E:\Projects\AzureWolf\Source\AzureWolf\..\Build\AzureWolfWin32\AzureWolfWin32D.lib
+       CopyFilesToOutputDirectory:
+         Copying file from "..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" to "..\Build\AzureWolfWin32\AzureWolfWin32D.pdb".
+       FinalizeBuildStatus:
+         Deleting file "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\unsuccessfulbuild".
+         Touching "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\AzureWolf.lastbuildstate".
      1>Done Building Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.93
+Time Elapsed 00:00:01.14

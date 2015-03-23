@@ -11,7 +11,7 @@
 #include "../Renderer/AWGLRenderer/AW_Renderer.h"
 
 //Resources
-#include "../Renderer/Resources/AWTexture.h"
+//#include "Resources\AW_Texture.h"
 
 //SceneGraph
 //Shaders

@@ -127,8 +127,8 @@ protected:
 	//Handle of Window
     int mWindowID;
 
-    Texture::Format mColorFormat;
-    Texture::Format mDepthStencilFormat;
+    //Texture::Format mColorFormat;
+    //Texture::Format mDepthStencilFormat;
     int mNumMultisamples;
     Renderer* mRenderer;
 

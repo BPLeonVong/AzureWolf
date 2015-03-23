@@ -70,6 +70,9 @@
     <Filter Include="Renderer\Shader">
       <UniqueIdentifier>{1cb83d65-f2fe-4146-99c4-2838d7f3aa73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CoreSystems\Utilities\CPractices">
+      <UniqueIdentifier>{1a58893b-bc18-4f3a-a353-740099479dd2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AzureWolf\AzureWolf.h">
@@ -142,9 +145,6 @@
     <ClInclude Include="Renderer\RenderDevice\RenderInput.h">
       <Filter>Renderer\RenderDevice</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer\Resources\AWTexture.h">
-      <Filter>Renderer\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer\AW_Graphics.h">
       <Filter>Renderer</Filter>
     </ClInclude>
@@ -174,6 +174,18 @@
     </ClInclude>
     <ClInclude Include="Core Systems\Utilities\camera.h">
       <Filter>CoreSystems\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Resources\AW_Texture.h">
+      <Filter>Renderer\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\CPractices\LinkedList.h">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\CPractices\BST.h">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
+    </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\CPractices\Recursion.h">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +249,18 @@
     </ClCompile>
     <ClCompile Include="Core Systems\Utilities\camera.cpp">
       <Filter>CoreSystems\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Resources\AW_Texture.cpp">
+      <Filter>Renderer\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\CPractices\LinkedList.cpp">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\CPractices\BST.cpp">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
+    </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\CPractices\Recursion.cpp">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

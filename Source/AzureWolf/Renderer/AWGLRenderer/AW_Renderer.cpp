@@ -211,9 +211,9 @@ void Renderer::RenderScene(GLvoid)
     Vector3f CameraPos(0.0f, 0.0f, -3.0f);
     Vector3f CameraTarget(0.0f, 0.0f, 2.0f);
     Vector3f CameraUp(0.0f, 1.0f, 0.0f);
-    p.SetCamera(CameraPos, CameraTarget, CameraUp);
+    //p.SetCamera(CameraPos, CameraTarget, CameraUp);
 
-	//p.SetCamera(GameCamera.GetPos(), GameCamera.GetTarget(), GameCamera.GetUp());
+	p.SetCamera(mCamera->GetPos(), mCamera->GetTarget(), mCamera->GetUp());
     
     p.SetPerspectiveProj(30.0f, 800, 600, 1.0f, 100.0f);
 

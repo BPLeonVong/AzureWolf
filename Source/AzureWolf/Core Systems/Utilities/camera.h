@@ -30,8 +30,6 @@ public:
 
     Camera(const Vector3f& Pos, const Vector3f& Target, const Vector3f& Up);
 
-    bool OnKeyboard(int Key);
-
     const Vector3f& GetPos() const
     {
         return m_pos;

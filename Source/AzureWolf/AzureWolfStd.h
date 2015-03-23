@@ -11,9 +11,9 @@
 #include <crtdbg.h>
 
 //Check Version
-#define		_VS2012_
-#if			_MSC_VER < 1700
-	#undef	_VS2012_
+#define		_VS2013_
+#if			_MSC_VER < 1800
+	#undef	_VS2013_
 #endif
 
 #pragma warning( disable : 4996 )
