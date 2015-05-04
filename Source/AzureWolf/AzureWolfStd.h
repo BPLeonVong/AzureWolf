@@ -63,7 +63,6 @@ public:
 #include <tinyxml.h>
 #include <FastDelegate.h>
 //#include <zlib.h>
-//#include <stb_image.h>
 
 
 using fastdelegate::MakeDelegate;

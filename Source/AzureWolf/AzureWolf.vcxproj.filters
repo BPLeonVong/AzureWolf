@@ -34,9 +34,6 @@
     <Filter Include="CoreSystems\Memory">
       <UniqueIdentifier>{5ca7c80d-151a-402b-b6ab-938d655dd08b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SpecificSubsystems\Spirit">
-      <UniqueIdentifier>{fd3495fb-95d4-4556-92f0-adaf1d648da3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CoreSystems\Utilities\DataTypes">
       <UniqueIdentifier>{c1d7b38d-e9a8-4d5c-956b-f416bd6be199}</UniqueIdentifier>
     </Filter>
@@ -64,9 +61,6 @@
     <Filter Include="BasicFoundations">
       <UniqueIdentifier>{5f62f421-f87c-46a2-aa69-f8e2ee08c6bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BasicFoundations\MainLoop">
-      <UniqueIdentifier>{cbca9bfd-1e31-41fd-9c92-862c4ef15b3c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Renderer\Shader">
       <UniqueIdentifier>{1cb83d65-f2fe-4146-99c4-2838d7f3aa73}</UniqueIdentifier>
     </Filter>
@@ -78,20 +72,11 @@
     <ClInclude Include="AzureWolf\AzureWolf.h">
       <Filter>AzureWolf</Filter>
     </ClInclude>
-    <ClInclude Include="Core Systems\Utilities\templates.h">
-      <Filter>CoreSystems\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Core Systems\Utilities\types.h">
       <Filter>CoreSystems\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Core Systems\Debugging\Logger.h">
       <Filter>CoreSystems\Debugging</Filter>
-    </ClInclude>
-    <ClInclude Include="Basic Foundations\Main Loop\Initialization.h">
-      <Filter>BasicFoundations\MainLoop</Filter>
-    </ClInclude>
-    <ClInclude Include="AzureWolf\BaseGameLogic.h">
-      <Filter>AzureWolf</Filter>
     </ClInclude>
     <ClInclude Include="AzureWolfStd.h" />
     <ClInclude Include="Core Systems\StartUp\AW_Application.h">
@@ -106,18 +91,6 @@
     <ClInclude Include="Core Systems\Memory\AW_Memory.h">
       <Filter>CoreSystems\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h">
-      <Filter>CoreSystems\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Specific Subsystems\Spirit\Spirit.h">
-      <Filter>SpecificSubsystems\Spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="Specific Subsystems\Spirit\SpiritFactory.h">
-      <Filter>SpecificSubsystems\Spirit</Filter>
-    </ClInclude>
-    <ClInclude Include="Specific Subsystems\Spirit\SpiritProperty.h">
-      <Filter>SpecificSubsystems\Spirit</Filter>
-    </ClInclude>
     <ClInclude Include="Core Systems\StartUp\AW_WindowApplication.h">
       <Filter>CoreSystems\StartUp Modules</Filter>
     </ClInclude>
@@ -130,15 +103,6 @@
     <ClInclude Include="Core Systems\Time\AWTime.h">
       <Filter>CoreSystems\Time</Filter>
     </ClInclude>
-    <ClInclude Include="renderer\graphics3d\geometry.h">
-      <Filter>Renderer\Graphics3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\Graphics3D\SceneNode.h">
-      <Filter>Renderer\Graphics3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\User Interface\UserInterface.h">
-      <Filter>Renderer\UserInterface</Filter>
-    </ClInclude>
     <ClInclude Include="Core Systems\Utilities\AWInit.h">
       <Filter>CoreSystems\Utilities</Filter>
     </ClInclude>
@@ -150,9 +114,6 @@
     </ClInclude>
     <ClInclude Include="Renderer\AWGLRenderer\AW_Renderer.h">
       <Filter>Renderer\AWGLRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGLRenderer\AWOpenGLRendererData.h">
-      <Filter>Renderer\OpenGLRenderer</Filter>
     </ClInclude>
     <ClInclude Include="Renderer\AWGLRenderer\AW_GLRenderData.h">
       <Filter>Renderer\AWGLRenderer</Filter>
@@ -187,6 +148,12 @@
     <ClInclude Include="Core Systems\Utilities\CPractices\Recursion.h">
       <Filter>CoreSystems\Utilities\CPractices</Filter>
     </ClInclude>
+    <ClInclude Include="Core Systems\Utilities\CPractices\Structors.h">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGLRenderer\AWOpenGLRendererData.h">
+      <Filter>Renderer\OpenGLRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AzureWolfStd.cpp" />
@@ -196,20 +163,8 @@
     <ClCompile Include="Core Systems\Debugging\Logger.cpp">
       <Filter>CoreSystems\Debugging</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Foundations\Main Loop\Initialization.cpp">
-      <Filter>BasicFoundations\MainLoop</Filter>
-    </ClCompile>
-    <ClCompile Include="AzureWolf\BaseGameLogic.cpp">
-      <Filter>AzureWolf</Filter>
-    </ClCompile>
     <ClCompile Include="Core Systems\StartUp\AW_Application.cpp">
       <Filter>CoreSystems\StartUp Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Specific Subsystems\Spirit\Spirit.cpp">
-      <Filter>SpecificSubsystems\Spirit</Filter>
-    </ClCompile>
-    <ClCompile Include="Specific Subsystems\Spirit\SpiritFactory.cpp">
-      <Filter>SpecificSubsystems\Spirit</Filter>
     </ClCompile>
     <ClCompile Include="Core Systems\StartUp\AW_WindowApplication.cpp">
       <Filter>CoreSystems\StartUp Modules</Filter>
@@ -222,12 +177,6 @@
     </ClCompile>
     <ClCompile Include="Core Systems\Time\AWTime.cpp">
       <Filter>CoreSystems\Time</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\Graphics3D\geometry.cpp">
-      <Filter>Renderer\Graphics3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\Graphics3D\SceneNode.cpp">
-      <Filter>Renderer\Graphics3D</Filter>
     </ClCompile>
     <ClCompile Include="Core Systems\Utilities\AWInit.cpp">
       <Filter>CoreSystems\Utilities</Filter>
@@ -262,26 +211,11 @@
     <ClCompile Include="Core Systems\Utilities\CPractices\Recursion.cpp">
       <Filter>CoreSystems\Utilities\CPractices</Filter>
     </ClCompile>
+    <ClCompile Include="Core Systems\Utilities\CPractices\Structors.cpp">
+      <Filter>CoreSystems\Utilities\CPractices</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Audio\About.txt">
-      <Filter>Audio</Filter>
-    </None>
-    <None Include="AzureWolf\About.txt">
-      <Filter>AzureWolf</Filter>
-    </None>
-    <None Include="Basic Foundations\About.txt">
-      <Filter>BasicFoundations</Filter>
-    </None>
-    <None Include="Core Systems\About.txt">
-      <Filter>CoreSystems</Filter>
-    </None>
-    <None Include="Resource Cache\About.txt">
-      <Filter>ResourceCache</Filter>
-    </None>
-    <None Include="Specific Subsystems\About.txt">
-      <Filter>SpecificSubsystems</Filter>
-    </None>
     <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl">
       <Filter>CoreSystems\Utilities\DataTypes</Filter>
     </None>
@@ -293,10 +227,6 @@
     </None>
     <None Include="Core Systems\Memory\AW_Memory.inl">
       <Filter>CoreSystems\Memory</Filter>
-    </None>
-    <None Include="Renderer\About.txt" />
-    <None Include="Core Systems\FileIO\AW_FileIO.inl">
-      <Filter>CoreSystems\FileIO</Filter>
     </None>
     <None Include="Renderer\Shader\shader.fs">
       <Filter>Renderer\Shader</Filter>

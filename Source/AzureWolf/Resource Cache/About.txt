@@ -1,1 +1,0 @@
-This file holds all our resources (This does not include 3rd Party SDK)

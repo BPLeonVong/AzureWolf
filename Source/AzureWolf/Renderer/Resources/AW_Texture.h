@@ -5,15 +5,19 @@ namespace AW
 	class Texture
 	{
 	public:
-		Texture(GLenum TextureTarget, const std::string& FileName);
+		Texture(const char* pBuffer, size_t nBufferSize, int & nWidth, int & nHeight, int & nComponents);
 
-		bool Load();
+		virtual ~Texture();
 
-		void Bind(GLenum TextureUnity);
+		void Bind(unsigned int unit);
+
+
+	private:
+		Texture(const Texture& otherTexture);
+		void operator=(const Texture& otherTexture);
 
 	private:
 		std::string m_fileName;
-		GLenum m_textureTarget;
 		GLuint m_textureObj;
 
 	};

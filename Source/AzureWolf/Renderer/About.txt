@@ -1,2 +1,0 @@
-This file is used to display visual effects, provide our game with a low-level renderer,
-Game Specific Interfaces and Cinematics if any.

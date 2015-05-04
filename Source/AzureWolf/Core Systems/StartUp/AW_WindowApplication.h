@@ -1,7 +1,12 @@
 #pragma once
 
+//Gives the application access to the application base class
 #include "AW_Application.h"
+
+//Allows the application to set the initializers
 #include "../Utilities/AWInit.h"
+
+//Includes camera system to the application
 #include "../Utilities/camera.h"
 
 namespace AW

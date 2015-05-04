@@ -1,39 +1,88 @@
 #include "AzureWolfStd.h"
 #include "LinkedList.h"
 
-node *root;
-node *root1;
-node *root2;
-node *root3;
 
 PLinkedList::PLinkedList()
 {
-
-
-  root = new node;
-  root1 = new node;
-  root2 = new node;
-  root3 = new node;
-
-  root->next = root1;
-  root->prev = root3;
-  root->x = 1;
-       
-  root1->next = root2;
-  root1->prev = root;
-  root1->x = 2;
-       
-
-  root2->next = root3;
-  root2->prev = root1;
-  root2->x = 3;
-       
-
-  root3->next = root;
-  root3->prev = root2;
-  root3->x = 4;
-       
+	head = NULL;
+	curr = NULL;
+	temp = NULL;
 }
+
+void PLinkedList::PInsert(int data)
+{
+	nodePtr n = new node;
+	n->next = NULL;
+	n->prev = NULL;
+	n->x = data;
+
+	if (head != NULL)
+	{
+		n->prev = tail;
+		tail->next = n;
+		tail = n;
+		tail->next = head;
+		head->prev = tail;
+	}
+	else
+	{
+		head = n;
+		tail = n;
+	}
+}
+
+void PLinkedList::PDelete(int data)
+{
+	nodePtr delNode = NULL;
+	temp = head;
+	curr = head;
+	while (curr != NULL && curr->x != data)
+	{
+		temp = curr;
+		curr = curr->next;
+	}
+	if (curr == NULL)
+	{
+		cout << "The deletion you requested was not in the list"<<endl;
+	}
+	else
+	{
+		delNode = curr;
+		if (curr == head)
+		{
+			head = curr->next;
+			tail->next = head;
+			head->prev = tail;
+			curr = curr->next;
+		}
+		else if (curr == tail)
+		{
+			tail = curr->prev;
+			head->prev = tail;
+			tail->next = head;
+			curr = curr->prev;
+		}
+		else
+		{
+			curr = curr->next;
+			temp->next = curr;
+			curr->prev = temp;
+		}
+		delete delNode;
+	}
+}
+
+void PLinkedList::Insert(int data)
+{
+	PInsert(data);
+}
+
+
+void PLinkedList::Delete(int data)
+{
+	PDelete(data);
+}
+
 
 PLinkedList::~PLinkedList()
 {
@@ -41,18 +90,28 @@ PLinkedList::~PLinkedList()
 
 void PLinkedList::Display()
 {
-	cout << "LinkedList.h is initialized." << endl;
-	cout << root->prev->x << endl;
-	cout << root->x << endl;
-	cout << root->next->x << endl;
-	cout << root1->prev->x << endl;
-	cout << root1->x << endl;
-	cout << root1->next->x << endl;
-	cout << root2->prev->x << endl;
-	cout << root2->x << endl;
-	cout << root2->next->x << endl;
-	cout << root3->prev->x << endl;
-	cout << root3->x << endl;
-	cout << root3->next->x << endl;
+	DForward();
+	DBackward();
+	cout << "Head - " << head->prev->x << " " << head->x << " " << head->next->x << endl;
+	cout << "Tail - " << tail->prev->x << " " << tail->x << " " << tail->next->x << endl;
+}
 
+void PLinkedList::DForward()
+{
+	curr = head;
+	do
+	{
+		cout << curr->x << endl;
+		curr = curr->next;
+	} while (curr != head);
+}
+
+void PLinkedList::DBackward()
+{
+	curr = tail;
+	do
+	{
+		cout << curr->x << endl;
+		curr = curr->prev;
+	} while (curr != tail);
 }

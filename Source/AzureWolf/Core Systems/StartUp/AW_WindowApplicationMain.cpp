@@ -6,15 +6,10 @@
 #include "../../Core Systems/Utilities/CPractices/LinkedList.h"
 #include "../../Core Systems/Utilities/CPractices/BST.h"
 #include "../../Core Systems/Utilities/CPractices/Recursion.h"
+#include "../../Core Systems/Utilities/CPractices/Structors.h"
 
 using namespace std;
 using namespace AW;
-
-const int WindowApplication::KEY_ESCAPE = VK_ESCAPE;
-const int WindowApplication::KEY_LEFT_ARROW = VK_LEFT;
-const int WindowApplication::KEY_DOWN_ARROW = VK_DOWN;
-const int WindowApplication::KEY_RIGHT_ARROW = VK_RIGHT;
-const int WindowApplication::KEY_UP_ARROW = VK_UP;
 
 static bool gsIgnoreWindowDestroy = false;
 
@@ -109,6 +104,26 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
 
 int WindowApplication::Main(int, char**)
 {
+	//Need to check System Resources
+	//Detects instances of application, checks memory and storage space, calculates cpu, load game resources, load player prompts, create lua script manager, create event manager, load game settings (default), initialize renderer, create game logic and game view, sets the directory saves, preload certain resources
+	//Check CPU Speed
+
+	//Initialize Random Number Generator
+
+	//Load programmer debugging options/tools
+
+	//Initialize memory cache
+
+	//Create window
+
+	//Initialize audio system
+
+	//Load player game settings and saved files
+
+	//Create drawing surfaces
+
+	//Performance initialization
+
 	//Reference to the Application
 	WindowApplication* theApp = (WindowApplication*)MYApplication;
 
@@ -116,13 +131,34 @@ int WindowApplication::Main(int, char**)
 	theApp->KEY_TERMINATE = WindowApplication::KEY_ESCAPE;
 
 	//Testing C++ practices in console
-	PLinkedList pLLTemp;
-	PBST pBSTTemp;
-	PRecursion pRTemp;
-	pLLTemp.Display();
-	pBSTTemp.Display();
-	pRTemp.Display();
 
+	//Linked List Example
+	/*PLinkedList pLLTemp;
+	pLLTemp.Insert(3);
+	pLLTemp.Insert(5);
+	pLLTemp.Insert(7);
+	pLLTemp.Display();
+	pLLTemp.Delete(7);
+	pLLTemp.Display();*/
+
+	//Binary Search Tree Example
+	/*PBST pBSTTemp;
+	int TreeKeys[5] = { 4, 5, 10, 6, 3 };
+	pBSTTemp.Display();
+	for (int i = 0; i < 5; ++i)
+	{
+		pBSTTemp.Insert(TreeKeys[i]);
+	}
+	pBSTTemp.Display();*/
+
+	//Recursion Example
+	//PRecursion pRTemp;
+	//pRTemp.Display();
+
+	//Structor
+	//{ B b(5); }
+	//std::cout << std::endl;
+	//std::cout << 22 / 5 * 3;
 	//Check if the application was created
 	if(!theApp->OnPrecreate())
 	{

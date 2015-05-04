@@ -17,9 +17,7 @@
   <ItemGroup>
     <ClInclude Include="AzureWolfStd.h" />
     <ClInclude Include="AzureWolf\AzureWolf.h" />
-    <ClInclude Include="AzureWolf\BaseGameLogic.h" />
     <ClInclude Include="AzureWolf\interfaces.h" />
-    <ClInclude Include="Basic Foundations\Main Loop\Initialization.h" />
     <ClInclude Include="Core Systems\AW_CoreSystems.h" />
     <ClInclude Include="Core Systems\Debugging\Logger.h" />
     <ClInclude Include="Core Systems\FileIO\AW_FileIO.h" />
@@ -29,30 +27,23 @@
     <ClInclude Include="Core Systems\StartUp\AW_WindowApplication.h" />
     <ClInclude Include="Core Systems\Time\AWTime.h" />
     <ClInclude Include="Core Systems\Utilities\AWInit.h" />
-    <ClInclude Include="Core Systems\Utilities\AW_Enivronment.h" />
     <ClInclude Include="Core Systems\Utilities\camera.h" />
     <ClInclude Include="Core Systems\Utilities\CPractices\BST.h" />
     <ClInclude Include="Core Systems\Utilities\CPractices\LinkedList.h" />
     <ClInclude Include="Core Systems\Utilities\CPractices\Recursion.h" />
+    <ClInclude Include="Core Systems\Utilities\CPractices\Structors.h" />
     <ClInclude Include="Core Systems\Utilities\DataTypes\AWFloat4.h" />
     <ClInclude Include="Core Systems\Utilities\DataTypes\AWMatrix4.h" />
     <ClInclude Include="Core Systems\Utilities\math_3d.h" />
     <ClInclude Include="Core Systems\Utilities\pipeline.h" />
-    <ClInclude Include="Core Systems\Utilities\templates.h" />
     <ClInclude Include="Core Systems\Utilities\types.h" />
     <ClInclude Include="Renderer\AWGLRenderer\AW_GLRenderData.h" />
     <ClInclude Include="Renderer\AWGLRenderer\AW_Renderer.h" />
     <ClInclude Include="Renderer\AW_Graphics.h" />
-    <ClInclude Include="renderer\graphics3d\geometry.h" />
-    <ClInclude Include="Renderer\Graphics3D\SceneNode.h" />
     <ClInclude Include="Renderer\OpenGLRenderer\AWOpenGLRendererData.h" />
     <ClInclude Include="Renderer\RenderDevice\RenderInput.h" />
     <ClInclude Include="Renderer\Resources\AW_Texture.h" />
-    <ClInclude Include="Renderer\User Interface\UserInterface.h" />
     <ClInclude Include="Resource Cache\ResourceCache.h" />
-    <ClInclude Include="Specific Subsystems\Spirit\Spirit.h" />
-    <ClInclude Include="Specific Subsystems\Spirit\SpiritFactory.h" />
-    <ClInclude Include="Specific Subsystems\Spirit\SpiritProperty.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AzureWolfStd.cpp">
@@ -63,8 +54,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="AzureWolf\AzureWolf.cpp" />
-    <ClCompile Include="AzureWolf\BaseGameLogic.cpp" />
-    <ClCompile Include="Basic Foundations\Main Loop\Initialization.cpp" />
     <ClCompile Include="Core Systems\Debugging\Logger.cpp" />
     <ClCompile Include="Core Systems\FileIO\AW_FileIO.cpp" />
     <ClCompile Include="Core Systems\StartUp\AW_Application.cpp" />
@@ -77,34 +66,23 @@
     <ClCompile Include="Core Systems\Utilities\CPractices\BST.cpp" />
     <ClCompile Include="Core Systems\Utilities\CPractices\LinkedList.cpp" />
     <ClCompile Include="Core Systems\Utilities\CPractices\Recursion.cpp" />
+    <ClCompile Include="Core Systems\Utilities\CPractices\Structors.cpp" />
     <ClCompile Include="Core Systems\Utilities\math_3d.cpp" />
     <ClCompile Include="Core Systems\Utilities\pipeline.cpp" />
     <ClCompile Include="Renderer\AWGLRenderer\AW_Renderer.cpp" />
-    <ClCompile Include="Renderer\Graphics3D\geometry.cpp" />
-    <ClCompile Include="Renderer\Graphics3D\SceneNode.cpp" />
     <ClCompile Include="Renderer\Resources\AW_Texture.cpp" />
     <ClCompile Include="Resource Cache\ResourceCache.cpp" />
-    <ClCompile Include="Specific Subsystems\Spirit\Spirit.cpp" />
-    <ClCompile Include="Specific Subsystems\Spirit\SpiritFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Audio\About.txt" />
-    <None Include="AzureWolf\About.txt" />
-    <None Include="Basic Foundations\About.txt" />
-    <None Include="Core Systems\About.txt" />
-    <None Include="Core Systems\FileIO\AW_FileIO.inl" />
     <None Include="Core Systems\Memory\AW_Memory.inl" />
     <None Include="Core Systems\StartUp\AW_WindowApplication.inl" />
     <None Include="Core Systems\Utilities\AWTable.inl" />
     <None Include="Core Systems\Utilities\AWTuple.inl" />
     <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl" />
     <None Include="Core Systems\Utilities\DataTypes\AWMatrix4.inl" />
-    <None Include="Renderer\About.txt" />
     <None Include="Renderer\AWGLRenderer\AW_Renderer.inl" />
     <None Include="Renderer\Shader\shader.fs" />
     <None Include="Renderer\Shader\shader.vs" />
-    <None Include="Resource Cache\About.txt" />
-    <None Include="Specific Subsystems\About.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E5D696D7-455D-42BB-AF2E-CB92EA767BE5}</ProjectGuid>

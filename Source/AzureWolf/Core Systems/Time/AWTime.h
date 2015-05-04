@@ -4,6 +4,6 @@
 
 namespace AW
 {
-	int64_t GetTimeInMicrosceonds();
+	int64_t GetTimeInMicroseconds();
 	double GetTimeInSeconds();
 }

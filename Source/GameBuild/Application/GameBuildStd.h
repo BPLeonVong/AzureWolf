@@ -2,7 +2,7 @@
 
 #include "../../AzureWolf/AzureWolfStd.h"
 
-class GameBuildStd : public AW_GameApplication
+class GameBuildStd : public AW_WinGameApplication
 {
 	
     AW_DECLARE_INITIALIZE;
@@ -15,6 +15,8 @@ public:
 	virtual void OnTerminate();
 	virtual void OnIdle();
 	virtual bool OnKeyDown(unsigned char key, int x, int y);
+
+	void SetKeySettings();
 
 protected:
     Float4 mTextColor;

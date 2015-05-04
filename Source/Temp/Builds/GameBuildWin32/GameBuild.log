@@ -1,7 +1,7 @@
-﻿Build started 2015-03-23 1:15:28 PM.
+﻿Build started 2015-05-01 6:53:32 PM.
      1>Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" on node 2 (Rebuild target(s)).
-     1>PrepareForBuild:
-         Creating directory "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\".
+     1>_PrepareForClean:
+         Deleting file "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\GameBuild.lastbuildstate".
        InitializeBuildStatus:
          Creating "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.06
+Time Elapsed 00:00:00.98

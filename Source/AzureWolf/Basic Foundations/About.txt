@@ -1,3 +1,0 @@
-This file is used to for the scripting system, 
-static world elements, dynamic game objects, 
-and world loading and streaming, audio, basically game flow system.

@@ -3,7 +3,7 @@
 #include "AzureWolf.h"
 
 
-AW_GameApplication::AW_GameApplication(const char* windowTitle, int xPosition, int yPosition,
+AW_WinGameApplication::AW_WinGameApplication(const char* windowTitle, int xPosition, int yPosition,
         int width, int height, const Float4& clearColor)
 		:
 		WindowApplication(windowTitle,xPosition,yPosition,width,height,clearColor)
@@ -11,11 +11,11 @@ AW_GameApplication::AW_GameApplication(const char* windowTitle, int xPosition, i
 
 }
 
-AW_GameApplication::~AW_GameApplication()
+AW_WinGameApplication::~AW_WinGameApplication()
 {
 }
 
-bool AW_GameApplication::OnInitialize()
+bool AW_WinGameApplication::OnInitialize()
 {
 	if (!WindowApplication::OnInitialize())
     {
@@ -24,12 +24,12 @@ bool AW_GameApplication::OnInitialize()
 	return true;
 }
 
-void AW_GameApplication::OnTerminate()
+void AW_WinGameApplication::OnTerminate()
 {
     WindowApplication::OnTerminate();
 }
 
-bool AW_GameApplication::OnKeyDown(unsigned char key, int x, int y)
+bool AW_WinGameApplication::OnKeyDown(unsigned char key, int x, int y)
 {
 	return true;
 }
