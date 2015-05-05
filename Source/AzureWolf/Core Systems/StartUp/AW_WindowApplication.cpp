@@ -289,3 +289,23 @@ void WindowApplication::MoveLeft()
 {
 	mCamera->MoveLeft();
 }
+
+
+bool WindowApplication::IsOnlyGameInstance()
+{
+	HANDLE handle = CreateMutex(NULL, true, WindowApplication::GetWindowTitle());
+
+	if (GetLastError() != ERROR_SUCCESS)
+	{
+		HWND hWnd = FindWindow(WindowApplication::GetWindowTitle(), NULL);
+		if (hWnd)
+		{
+			ShowWindow(hWnd, SW_SHOWNORMAL);
+			SetFocus(hWnd);
+			SetForegroundWindow(hWnd);
+			SetActiveWindow(hWnd);
+			return false;
+		}
+	}
+	return true;
+}

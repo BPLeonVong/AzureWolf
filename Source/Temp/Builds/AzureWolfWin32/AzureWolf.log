@@ -1,9 +1,9 @@
-﻿Build started 2015-05-02 2:23:10 PM.
+﻿Build started 2015-05-04 3:13:54 PM.
      1>Project "E:\Projects\AzureWolf\Source\AzureWolf\AzureWolf.vcxproj" on node 2 (Rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\AzureWolf.lastbuildstate".
        InitializeBuildStatus:
-         Touching "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\unsuccessfulbuild".
+         Creating "..\Temp\Builds\AzureWolfWin32\AzureWolf.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D AW_LITTLE_ENDIAN /D _USE_MATH_DEFINES /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"AzureWolfStd.h" /Fp"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pch" /Fo"..\Temp\Builds\AzureWolfWin32\\" /Fd"..\Temp\Builds\AzureWolfWin32\AzureWolfWin32D.pdb" /Gd /TP /analyze- /errorReport:prompt AzureWolfStd.cpp
          AzureWolfStd.cpp
@@ -59,4 +59,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.21
+Time Elapsed 00:00:01.16

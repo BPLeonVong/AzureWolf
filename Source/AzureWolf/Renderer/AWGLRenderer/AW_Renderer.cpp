@@ -15,6 +15,8 @@ using namespace std;
 
 const char* pVSFileName = "../AzureWolf/Renderer/Shader/shader.vs";
 const char* pFSFileName = "../AzureWolf/Renderer/Shader/shader.fs";
+const char* pVSFileName2 = "shader.vs";
+const char* pFSFileName2 = "shader.fs";
 
 //GLfloat	rtri;				// Angle For The Triangle ( NEW )
 //GLfloat	rquad;				// Angle For The Quad ( NEW )
@@ -95,7 +97,7 @@ Renderer::Renderer(RenderInput& input, int width, int height,
     glGenBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-	
+
 	CompileShaders();
 
 	//Texture texture("tempBackground.jpg");
@@ -161,19 +163,23 @@ void Renderer::CompileShaders()
 
     string vs, fs;
 	
-    if (!fRead(pVSFileName, vs)) {
-        exit(1);
+	if (!fRead(pVSFileName, vs)) {
+		if (!fRead(pVSFileName2, vs)) {
+			printf("Shader was unable to load");
+		};
     };
 
-    if (!fRead(pFSFileName, fs)) {
-        exit(1);
-    };
+	if (!fRead(pFSFileName, fs)) {
+		if (!fRead(pFSFileName2, fs)) {
+			printf("Shader was unable to load");
+		};
+	};
     AddShader(ISHADEPROGRAM, vs.c_str(), GL_VERTEX_SHADER);
     AddShader(ISHADEPROGRAM, fs.c_str(), GL_FRAGMENT_SHADER);
-	
-	
+
+
 	glLinkProgram(ISHADEPROGRAM);
-	
+
     GLint Success = 0;
     GLchar ErrorLog[1024] = { 0 };
 
@@ -187,7 +193,7 @@ void Renderer::CompileShaders()
 
 	glValidateProgram(ISHADEPROGRAM);
     glGetProgramiv(ISHADEPROGRAM, GL_VALIDATE_STATUS, &Success);
-    if (!Success) {
+	if (!Success) {
         glGetProgramInfoLog(ISHADEPROGRAM, sizeof(ErrorLog), NULL, ErrorLog);
         fprintf(stderr, "Invalid shader program: '%s'\n", ErrorLog);
         exit(1);

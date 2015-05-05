@@ -203,6 +203,13 @@ int WindowApplication::Main(int, char**)
         dwStyle, theApp->GetXPosition(), theApp->GetYPosition(),
         rect.right - rect.left + 1, rect.bottom - rect.top + 1, 0, 0, 0, 0);
 
+	if (handle == NULL)
+	{
+		printf("The window was unable to be built");
+		//return 1;
+	}
+
+
 	//Save handle as 'int'
     theApp->SetWinID(PtrToInt(handle));
 
@@ -215,6 +222,12 @@ int WindowApplication::Main(int, char**)
 
 	mRenderer = new0 Renderer(input, theApp->GetWidth(), theApp->GetHeight(), mNumMultisamples);
 	
+	if (mRenderer == NULL)
+	{
+		printf("The renderer was unable to be built");
+		//return 1;
+	}
+
 	if(theApp->OnInitialize())
 	{
         theApp->OnPreidle();

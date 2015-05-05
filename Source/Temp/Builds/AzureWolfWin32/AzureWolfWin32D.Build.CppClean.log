@@ -7,6 +7,7 @@ e:\projects\azurewolf\source\temp\builds\azurewolfwin32\logger.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_fileio.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_application.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_command.obj
+e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_windowapplication.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_windowapplicationmain.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\awtime.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\awinit.obj
@@ -20,6 +21,11 @@ e:\projects\azurewolf\source\temp\builds\azurewolfwin32\pipeline.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_renderer.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\aw_texture.obj
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\resourcecache.obj
+e:\projects\azurewolf\source\build\azurewolfwin32\azurewolfwin32d.lib
+e:\projects\azurewolf\source\azurewolf\..\build\azurewolfwin32\azurewolfwin32d.lib
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\azurewolf.tlog\cl.command.1.tlog
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\azurewolf.tlog\cl.read.1.tlog
 e:\projects\azurewolf\source\temp\builds\azurewolfwin32\azurewolf.tlog\cl.write.1.tlog
+e:\projects\azurewolf\source\temp\builds\azurewolfwin32\azurewolf.tlog\lib-link.read.1.tlog
+e:\projects\azurewolf\source\temp\builds\azurewolfwin32\azurewolf.tlog\lib-link.write.1.tlog
+e:\projects\azurewolf\source\temp\builds\azurewolfwin32\azurewolf.tlog\lib.command.1.tlog

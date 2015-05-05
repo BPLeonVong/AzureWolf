@@ -59,6 +59,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Source\Build\AzureWolfWin32</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>GameBuildStd.h</PrecompiledHeaderFile>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -159,6 +159,8 @@ protected:
     virtual void MoveBackward();
     virtual void MoveLeft();
     virtual void MoveRight();
+
+	bool IsOnlyGameInstance();
 };
 
 #include "AW_WindowApplication.inl"
