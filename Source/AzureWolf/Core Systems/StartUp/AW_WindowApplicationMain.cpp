@@ -18,7 +18,7 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
 	WPARAM wParam, LPARAM lParam)
 {
 	WindowApplication* theApp = (WindowApplication*)Application::MYApplication;
-
+	
 	if(!theApp || !theApp->GetWinID())
 	{
 		return DefWindowProc(handle, message, wParam, lParam);
@@ -50,7 +50,6 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
 			{
 				theApp->OnSpecialKeyDown(key,xPos,yPos);
 			}
-
 
             //theApp->OnKeyDown(key, xPos, yPos);
             return 0;
@@ -86,14 +85,11 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
 		}
 	case WM_DESTROY:
         {
-            // The DestroyWindow call when recreating the window for
-            // multisampling causes the application to terminate.  It is
-            // not clear why the same problem did not occur in WM4.
             if (!gsIgnoreWindowDestroy)
             {
                 PostQuitMessage(0);
             }
-            gsIgnoreWindowDestroy = false;
+			gsIgnoreWindowDestroy = false;
             return 0;
         }
 	}
@@ -167,21 +163,21 @@ int WindowApplication::Main(int, char**)
 
 	//Registering the Window Class
 	static char sWindowClass[] = "Application Name";
-    WNDCLASS wc;
+	WNDCLASS wc = {};
     wc.style         = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
     wc.lpfnWndProc   = WndEventProc;
-    wc.cbClsExtra    = 0;
-    wc.cbWndExtra    = 0;
-    wc.hInstance     = 0;
     wc.hIcon         = LoadIcon(0, IDI_APPLICATION);
     wc.hCursor       = LoadCursor(0, IDC_ARROW);
     wc.hbrBackground = (HBRUSH)GetStockObject (WHITE_BRUSH);
     wc.lpszClassName = sWindowClass;
-    wc.lpszMenuName  = 0;
 
-    RegisterClass(&wc);
+	if (!RegisterClass(&wc))
+	{
+		//Log an error
+		return 0;
+	}
 
-	 DWORD dwStyle;
+	DWORD dwStyle;
     if (mAllowResize)
     {
         dwStyle = WS_OVERLAPPEDWINDOW;

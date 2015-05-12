@@ -162,16 +162,15 @@ void Renderer::CompileShaders()
 
 
     string vs, fs;
-	
 	if (!fRead(pVSFileName, vs)) {
 		if (!fRead(pVSFileName2, vs)) {
-			printf("Shader was unable to load");
+			OutputDebugStringA("Vertex Shader was not able to load");
 		};
     };
 
 	if (!fRead(pFSFileName, fs)) {
 		if (!fRead(pFSFileName2, fs)) {
-			printf("Shader was unable to load");
+			OutputDebugStringA("Fragment Shader was not able to load");
 		};
 	};
     AddShader(ISHADEPROGRAM, vs.c_str(), GL_VERTEX_SHADER);
