@@ -25,10 +25,20 @@ class RendererData;
 		Renderer (RenderInput& input, int width, int height,
         int numMultisamples);
 	
+		void SetClearColor(Float4 clearColor);
+		void ClearBuffers();
+		void DisplayColorBuffer();
+
+
 	private:
 		GLenum IGLEW;
 		GLuint ISHADEPROGRAM;
 		Camera* mCamera;
+
+		Float4 mClearColor;
+		float mClearDepth;
+		unsigned int mClearStencil;
+
 	public:
 		RendererData* mData;
 		void RenderScene();

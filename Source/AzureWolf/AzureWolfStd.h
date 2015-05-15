@@ -63,7 +63,9 @@ public:
 #include <tinyxml.h>
 #include <FastDelegate.h>
 //#include <zlib.h>
-
+#include <include/assimp/cimport.h>
+#include <include/assimp/scene.h>
+#include <include/assimp/postprocess.h>
 
 using fastdelegate::MakeDelegate;
 

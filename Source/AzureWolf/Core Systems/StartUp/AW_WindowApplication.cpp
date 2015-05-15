@@ -101,9 +101,9 @@ int WindowApplication::Run (int numArguments, char** arguments)
 bool WindowApplication::OnInitialize ()
 {
 	//This is called in the AW_WindowApplicationMain after window is created
-//    mRenderer->SetClearColor(mClearColor);
 	mCamera = new0 Camera();
 	mRenderer->SetCamera(mCamera);
+	mRenderer->SetClearColor(mClearColor);
     return true;
 }
 
@@ -290,7 +290,7 @@ void WindowApplication::MoveLeft()
 	mCamera->MoveLeft();
 }
 
-
+/*
 bool WindowApplication::IsOnlyGameInstance()
 {
 	HANDLE handle = CreateMutex(NULL, true, WindowApplication::GetWindowTitle());
@@ -308,4 +308,4 @@ bool WindowApplication::IsOnlyGameInstance()
 		}
 	}
 	return true;
-}
+}*/

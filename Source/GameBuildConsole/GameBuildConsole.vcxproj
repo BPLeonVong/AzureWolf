@@ -44,7 +44,7 @@
     <OutDir>..\Build\$(ProjectName)$(PlatformName)\</OutDir>
     <IntDir>..\Temp\Builds\$(ProjectName)$(PlatformName)\</IntDir>
     <TargetName>$(ProjectName)$(PlatformName)$(ConfigurationType)</TargetName>
-    <IncludePath>$(SolutionDir)\Source\Build\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp--2.0.863-sdk;$(SolutionDir)\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Source\Build\AzureWolfWin32;$(SolutionDir)\Source\3rd_Party\stb;$(SolutionDir)\Source\3rd_Party\FastDelegate;$(SolutionDir)\Source\3rd_Party\tinyxml_2_6_2;$(SolutionDir)\Source\3rd_Party\zlib-1.2.5;$(SolutionDir)\Source\3rd_Party\assimp-3.1.1;$(SolutionDir)\Source\3rd_Party\glew-1.11.0\include\GL;$(IncludePath)</IncludePath>
     <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(LibraryPath);$(SolutionDir)\Source\Build\AzureWolfWin32;$(ProjectDir)\..\3rd_Party\glew-1.11.0\lib\Release\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -76,7 +76,6 @@
   <ItemGroup>
     <None Include="Core Systems\Memory\AW_Memory.inl" />
     <None Include="Core Systems\StartUp\AW_WindowApplication.inl" />
-    <None Include="Core Systems\Utilities\AWTable.inl" />
     <None Include="Core Systems\Utilities\AWTuple.inl" />
     <None Include="Core Systems\Utilities\DataTypes\AWFloat4.inl" />
     <None Include="Core Systems\Utilities\DataTypes\AWMatrix4.inl" />
@@ -138,7 +137,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>$(ProjectName)$(PlatformName)D</TargetName>
-    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\stb;$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\FastDelegate;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(ProjectDir)\..\3rd_Party\assimp--2.0.863-sdk;$(ProjectDir)\..\3rd_Party\glew-1.11.0\include\GL;$(ProjectDir)\Renderer\Shader;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)\..\3rd_Party\stb;$(ProjectDir)\..\3rd_Party\zlib-1.2.5;$(ProjectDir)\..\3rd_Party\FastDelegate;$(ProjectDir)\..\3rd_Party\tinyxml_2_6_2;$(ProjectDir)\..\3rd_Party\assimp-3.1.1;$(ProjectDir)\..\3rd_Party\glew-1.11.0\include\GL;$(ProjectDir)\Renderer\Shader;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\..\3rd_Party\glew-1.11.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">

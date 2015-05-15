@@ -135,7 +135,8 @@ protected:
     //Texture::Format mColorFormat;
     //Texture::Format mDepthStencilFormat;
     int mNumMultisamples;
-    Renderer* mRenderer;
+	Renderer* mRenderer;
+	RenderInput input;
 
 	//Performance measurements
     void ResetTime ();

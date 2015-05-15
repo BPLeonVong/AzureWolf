@@ -29,6 +29,9 @@ GLuint gScaleLocation;
 Renderer::Renderer(RenderInput& input, int width, int height,
         int numMultisamples)
 {
+	mClearDepth = 1.0f;
+	mClearStencil = 0;
+
 	//Creates Render Data and assign it to mData and set the input handle/dc to data
 	AWGLRendererData* data = new0 AWGLRendererData();
 	mData = data;
@@ -66,14 +69,9 @@ Renderer::Renderer(RenderInput& input, int width, int height,
 
 	//glViewport(0,0,width,height);						// Reset The Current Viewport
 
-	//glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
-	//glLoadIdentity();									// Reset The Projection Matrix
 
 	// Calculate The Aspect Ratio Of The Window
 	//gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
-
-	//glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
-	//glLoadIdentity();									// Reset The Modelview Matrix
 
 	InitGL();
 
@@ -115,7 +113,10 @@ void Renderer::InitGL(GLvoid)							// All Setup For OpenGL Goes Here
 	}
 
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
+	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
+	glLoadIdentity();									// Reset The Projection Matrix
+	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
+	glLoadIdentity();									// Reset The Modelview Matrix
 	glClearDepth(1.0f);									// Depth Buffer Setup
 	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
 	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
@@ -204,7 +205,6 @@ void Renderer::CompileShaders()
 
 void Renderer::RenderScene(GLvoid)
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	
     static float Scale = 0.0f;
 	
@@ -237,4 +237,23 @@ void Renderer::RenderScene(GLvoid)
 
 Renderer::~Renderer ()
 {
+}
+
+void Renderer::SetClearColor(Float4 color)
+{
+	mClearColor = color;
+}
+
+void Renderer::ClearBuffers()
+{
+	glClearColor(mClearColor[0], mClearColor[1], mClearColor[2], mClearColor[3]);
+	glClearDepth((GLclampd)mClearDepth);
+	glClearStencil((GLint)mClearStencil);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
+}
+
+void Renderer::DisplayColorBuffer()
+{
+	AWGLRendererData* data = (AWGLRendererData*)mData;
+	SwapBuffers(data->mWindowDC);				// Swap Buffers (Double Buffering)
 }

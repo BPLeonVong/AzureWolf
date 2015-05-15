@@ -1,4 +1,4 @@
-﻿Build started 2015-05-04 3:13:57 PM.
+﻿Build started 2015-05-15 7:36:32 AM.
      1>Project "E:\Projects\AzureWolf\Source\GameBuild\GameBuild.vcxproj" on node 2 (Rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "..\Temp\Builds\GameBuildWin32\GameBuild.tlog\GameBuild.lastbuildstate".
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.87
+Time Elapsed 00:00:01.10

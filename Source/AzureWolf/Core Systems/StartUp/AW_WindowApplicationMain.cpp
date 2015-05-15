@@ -12,6 +12,7 @@ using namespace std;
 using namespace AW;
 
 static bool gsIgnoreWindowDestroy = false;
+static bool applicationRunning;
 
 // ~~~ Window Procedure ~~~
 LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
@@ -85,13 +86,14 @@ LRESULT CALLBACK WndEventProc(HWND handle, UINT message,
 		}
 	case WM_DESTROY:
         {
-            if (!gsIgnoreWindowDestroy)
-            {
-                PostQuitMessage(0);
-            }
-			gsIgnoreWindowDestroy = false;
+			applicationRunning = false;
             return 0;
-        }
+		}
+	case WM_CLOSE:
+		{
+			applicationRunning = false;
+			return 0;
+		}
 	}
 
 	return DefWindowProc(handle, message, wParam, lParam);
@@ -210,14 +212,13 @@ int WindowApplication::Main(int, char**)
     theApp->SetWinID(PtrToInt(handle));
 
 	//Use opengl
-	RenderInput input;
 	input.mWindowHandle = handle;
 	input.mPixelFormat = 0;
 	input.mRendererDC = 0;
 	input.mDisableVerticalSync = true;
 
 	mRenderer = new0 Renderer(input, theApp->GetWidth(), theApp->GetHeight(), mNumMultisamples);
-	
+
 	if (mRenderer == NULL)
 	{
 		printf("The renderer was unable to be built");
@@ -230,7 +231,7 @@ int WindowApplication::Main(int, char**)
         ShowWindow(handle, SW_SHOW);
         UpdateWindow(handle);
 		
-		bool applicationRunning = true;
+		applicationRunning = true;
 
 		while(applicationRunning)
 		{
@@ -253,10 +254,7 @@ int WindowApplication::Main(int, char**)
             else
             {
                 theApp->OnIdle();
-				mRenderer->RenderScene();				//TEmp
-			SwapBuffers(input.mRendererDC);				// Swap Buffers (Double Buffering)
             }
-
 		}
 	}
 

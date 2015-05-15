@@ -234,9 +234,6 @@
     <None Include="Renderer\Shader\shader.vs">
       <Filter>Renderer\Shader</Filter>
     </None>
-    <None Include="Core Systems\Utilities\AWTable.inl">
-      <Filter>CoreSystems\Utilities</Filter>
-    </None>
     <None Include="Core Systems\Utilities\DataTypes\AWMatrix4.inl">
       <Filter>CoreSystems\Utilities\DataTypes</Filter>
     </None>
